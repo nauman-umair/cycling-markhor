@@ -1,0 +1,333 @@
+/* Cycling Markhor — style.css */
+
+:root {
+  --charcoal: #2B2E33;
+  --stone: #A89F91;
+  --snow: #FAFAF8;
+  --turquoise: #2E9E9B;
+  --blossom: #B8A6C9;
+
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --max-width: 68rem;
+  --pad: 1.25rem;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--charcoal);
+  background: var(--snow);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, video { display: block; max-width: 100%; }
+
+a { color: var(--turquoise); text-decoration: none; }
+a:hover { color: var(--blossom); }
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 1.25rem 0;
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  letter-spacing: 0.01em;
+  color: #fff;
+}
+.logo:hover { color: #fff; }
+
+.site-nav a {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  margin-left: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.site-nav a:hover,
+.site-nav a[aria-current="page"] { color: #fff; }
+
+/* Solid header variant (contact page) */
+.site-header--solid { position: static; background: var(--charcoal); }
+
+/* ---------- Hero reel ---------- */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: 30rem;
+  overflow: hidden;
+  background: var(--charcoal);
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-poster,
+.hero video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero video {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.hero video.is-visible { opacity: 1; }
+
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(20, 22, 26, 0.42) 0%,
+      rgba(20, 22, 26, 0.10) 30%,
+      rgba(20, 22, 26, 0.14) 55%,
+      rgba(20, 22, 26, 0.62) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-bottom: clamp(3rem, 10vh, 6rem);
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  max-width: 14ch;
+  text-wrap: balance;
+}
+
+.hero .subline {
+  margin-top: 1rem;
+  max-width: 34ch;
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.9rem 1.75rem;
+  background: var(--turquoise);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 3px;
+  letter-spacing: 0.01em;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.btn:hover {
+  background: var(--blossom);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn--big {
+  font-size: 1.15rem;
+  padding: 1.1rem 2.5rem;
+}
+
+/* ---------- Status strip ---------- */
+
+.status-strip {
+  background: var(--charcoal);
+  color: var(--stone);
+  text-align: center;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  padding: 0.9rem var(--pad);
+}
+.status-strip strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ---------- Sections ---------- */
+
+.section {
+  padding: clamp(4rem, 10vw, 7rem) 0;
+}
+
+.section h2 {
+  font-size: clamp(1.9rem, 4.5vw, 2.75rem);
+  margin-bottom: 1.75rem;
+}
+
+.section h2 .accent { color: var(--turquoise); }
+
+.section p + p { margin-top: 1.25rem; }
+
+.kicker {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 0.9rem;
+}
+
+/* Story: text beside photo on wide screens */
+
+.story-grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.story-grid img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+@media (min-width: 48rem) {
+  .story-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4rem;
+  }
+}
+
+/* Seasons */
+
+.section--seasons {
+  background: #fff;
+}
+
+.section--seasons .lede {
+  max-width: 42rem;
+}
+
+.seasons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+  margin-top: 2.75rem;
+}
+
+.seasons-grid img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+@media (min-width: 48rem) {
+  .seasons-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Moments */
+
+.moments-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+}
+
+.moments-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+@media (min-width: 48rem) {
+  .moments-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 26rem) {
+  .moments-grid { grid-template-columns: 1fr; }
+  .moments-grid img { aspect-ratio: 4 / 3; }
+}
+
+/* ---------- Contact page ---------- */
+
+.contact-main {
+  padding: clamp(4rem, 12vh, 8rem) 0;
+  text-align: center;
+}
+
+.contact-main h1 {
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+}
+
+.contact-main .contact-body {
+  max-width: 34rem;
+  margin: 1.5rem auto 0;
+}
+
+.contact-main .location {
+  margin-top: 2.5rem;
+  color: var(--stone);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--charcoal);
+  color: var(--stone);
+  padding: 3rem 0;
+  font-size: 0.95rem;
+}
+
+.site-footer .wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  text-align: center;
+}
+
+.site-footer a { color: var(--turquoise); }
+.site-footer a:hover { color: var(--blossom); }
+
+@media (min-width: 48rem) {
+  .site-footer .wrap {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
