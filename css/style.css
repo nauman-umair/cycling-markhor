@@ -28,6 +28,7 @@ body {
 }
 
 img, video { display: block; max-width: 100%; }
+img { height: auto; }
 
 a { color: var(--turquoise); text-decoration: none; }
 a:hover { color: var(--blossom); }
@@ -71,10 +72,15 @@ h1, h2, h3 {
 }
 .logo:hover { color: #fff; }
 
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
 .site-nav a {
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.95rem;
-  margin-left: 1.5rem;
   letter-spacing: 0.02em;
 }
 .site-nav a:hover,
