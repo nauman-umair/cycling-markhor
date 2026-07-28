@@ -154,8 +154,8 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 - The land story + ONE photo: `brangsas-from-dream-to-sand-2` at its natural aspect ratio (no crop) so the drawing is fully visible.
 - (Ambient band cut — view-from-broq loop restart was jarring; photos carry the page.)
 - **Winter block:** `hassnain-arsalan-and-broko` — copy explains why winters shape the build. (`surviving-sub-zero` benched.)
-- **"The cafe already travels" block:** `broko-ejju-prado-and-nauman` at natural aspect ratio — riders and Prado fully in frame, no cropping. Copy trimmed: children line gone.
-- **Timeline:** Now → First cutting → Late 2027 (rows in copy.md) + photo `cycling-markhor` (the misty roof-rack shot — lives only on this page; `prado-with-river-and-mountains-in-the-background-2`, `cycling-markhor-cafe-side-logo`, `-back-logo` benched).
+- **"The cafe already travels" block:** `cycling-markhor` (the misty roof-rack shot — lives only on this page) at natural aspect. Copy trimmed: children line gone.
+- **Timeline:** Now → First cutting → Late 2027 (rows in copy.md) + photo `broko-ejju-prado-and-nauman` at natural aspect — riders and Prado fully in frame. (`prado-with-river-and-mountains-in-the-background-2`, `cycling-markhor-cafe-side-logo`, `-back-logo` benched.)
 - **Standing rule (whole site):** portrait photos in wide containers get natural aspect ratio, contain-on-blur, or a visually verified `object-position` — never a blind cover crop. Verify crops with Chrome screenshots at desktop AND phone widths before calling a section done.
 - CTA: follow @cyclingmarkhor.tours + WhatsApp.
 
