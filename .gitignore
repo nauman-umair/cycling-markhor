@@ -1,3 +1,7 @@
 .DS_Store
-hero-videos/originals/
-hero-photos/
+
+# Original footage + logo pack — never committed, never modified.
+# Compressed copies live in assets/ (the pipeline output).
+hero-photos-final/
+hero-videos-final/
+logo/

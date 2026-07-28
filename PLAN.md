@@ -1,10 +1,10 @@
-# Cycling Markhor — Launch Day Plan (v3, matched to actual project folder)
+# Cycling Markhor — Full Site Plan (v4, the big one)
 
-**Goal:** cyclingmarkhor.com live today with a landing page + contact page, hosted on GitHub Pages. Hero is a 9-clip video reel; 15 hero photos feed the story, seasons, and a new "Moments" photo band.
+**Goal:** cyclingmarkhor.com live as a full 7-page site, hosted free on GitHub Pages: Home, Our Dream, Our Fleet, Our Team, Precious Humans, Where We Ride, Contact — built from the final footage (66 photos, 42 videos, logo pack).
 
-**How to use this file:** this file lives in the PROJECT ROOT (next to the folders, not inside text/). Work through the phases in order — Claude Code reads this as its brief. Tutorial boxes (🎓) explain git concepts at the moment you use them.
+**How to use this file:** lives in the PROJECT ROOT. Nauman works through the phases in order; Claude Code reads this file as its brief. Tutorial boxes (🎓) appear at the moment a concept is used.
 
-**What changed in v3:** plan now matches the real folder structure and file naming (hero-photos/, hero-videos/, underscored names); the 15 hero photos are factored in — story photo, seasons photos, and a "Moments" grid on the landing page.
+**What changed in v4:** the one-pager becomes a 7-page site. New footage folders (`hero-photos-final/`, `hero-videos-final/`, `logo/`) replace the old assets. The jitter fix is already baked in — clips are clean hard cuts now, so the existing crossfade engine gets to do its job. Every photo and video below is assigned a home.
 
 ---
 
@@ -12,147 +12,185 @@
 
 ```
 cycling-markhor/
-├── PLAN.md              ← this file (move it here from text/ if needed)
-├── hero-photos/         ← 15 photos, IMG_xxxx.jpg names (fine as-is)
-├── hero-videos/         ← hero_01.mp4 … hero_09.mp4 + hero_01_poster.jpg … hero_09_poster.jpg
-└── text/
-    └── copy.md          ← approved site copy
+├── PLAN.md                  ← this file
+├── index.html, contact.html ← v3 one-pager: the FOUNDATION, we extend it
+├── css/style.css            ← palette + type already correct — extend, don't restart
+├── js/reel.js               ← the crossfade reel engine — WORKS, reuse it
+├── assets/                  ← OLD compressed media from v3 — superseded, delete in Phase 1
+├── hero-photos-final/       ← 66 named photos (45 portrait 2048×2560, 21 landscape 2560×1440)
+├── hero-videos-final/       ← 42 clips (35 horizontal, 7 vertical) + a poster for every clip
+├── logo/V1 + logo/V2        ← V1 = dark artwork (for light backgrounds), V2 = white (for dark)
+└── text/copy.md             ← ALL approved words for all 7 pages
 ```
 
-No renaming required. Claude Code works with these names as they are.
+**Claude Code — known filename fixes to make when building the pipeline (copy, don't touch originals):**
+- `sarfaranga-desert-poster.mp4` is the *video*, misnamed → treat as `sarfaranga-desert.mp4` (its real poster is the .jpg of the same name)
+- `hassnain-broq-staris-2*` → "staris" = "stairs" typo, fix in output names
+- Logo filenames contain spaces + É → copy into `assets/brand/` as `logo-dark.png` (V1), `logo-light.png` (V2), `logo-mark.png` (a square `-01` file) and reference only the clean copies
 
 ---
 
 ## Scope guardrails (read when tempted)
 
-**Today we ARE building:** landing page (video reel hero + story + seasons + Moments photo grid), contact page, live on the real domain.
+**We ARE building:** the 7 pages above, from existing footage and existing copy, live on cyclingmarkhor.com.
 
-**Today we are NOT building:** a separate gallery page (the Moments grid is the compromise — 6 photos, one row-set, done), email signup, booking system, socials links, extra pages. New ideas → `LATER.md`.
+**We are NOT building:** online booking, prices/sizes tables (deliberately withheld for now), email signup, a blog, a separate gallery page, embedded Instagram feeds, analytics. New ideas → `LATER.md`.
 
-**Definition of done:** cyclingmarkhor.com loads on your phone and the reel plays.
+**Definition of done:** cyclingmarkhor.com loads on your phone on mobile data, all 7 pages work, the reel plays, and the WhatsApp button reaches Hassu.
 
----
-
-## Phase 0 — Pre-flight (15 min)
-
-1. Confirm `PLAN.md` is in the project root.
-2. **Order check on the reel:** posters make this easy — flick through hero_01 → hero_09 posters and confirm 01 and 02 are your two STRONGEST clips (most visitors decide in the first few seconds; hero_01 opening on the turquoise river is a great start). If any need reordering, don't rename by hand — just tell Claude Code, e.g. *"swap hero_04 and hero_02 in the play order."*
-3. **Pick your Moments six:** choose the 6 photos for the Moments grid (variety beats similarity — e.g. the suspension bridge, the yaks, a raised-bike victory shot, riders in landscape, the bike rack, a people shot). Note the IMG numbers — you'll tell Claude Code during the build. Undecided? Skip it; you can pick live during Phase 2.
+**Money note:** GitHub Pages is free on a public repository. No premium subscription needed. The compressed site (~110MB) sits comfortably inside every limit.
 
 ---
 
-## Phase 1 — Design brief (FOR Claude Code)
+## Phase 0 — Pre-flight (Nauman, 10 min)
 
-**Claude Code: this is the design specification. Follow it closely.**
-
-### Brand palette
-- `--charcoal: #2B2E33` — primary text, dark sections (the mountains)
-- `--stone: #A89F91` — warm neutral, secondary text
-- `--snow: #FAFAF8` — backgrounds
-- `--turquoise: #2E9E9B` — SIGNATURE accent. Links, buttons, key highlighted words. Sparingly, so it lands. (The Indus in winter.)
-- `--blossom: #B8A6C9` — whisper accent only: hover states, small details. (Apricot blossom.)
-
-### Typography
-- Headlines: elegant serif (Fraunces, Playfair Display, or Cormorant — Google Fonts) — editorial, travel-magazine feel
-- Body: clean sans-serif (Inter or Source Sans 3)
-- Generous line-height and whitespace. Calm pacing.
-
-### Style references
-- dolkharladakh.com — story-led structure, place-first narrative
-- broq.pk — boutique Skardu resort, minimal luxury, calm
-- A travel magazine feature about Skardu, not a rental-shop flyer.
-
-### HERO VIDEO REEL — the centrepiece
-
-**Concept:** 9 clips (3–5s each) play full-viewport in sequence, 01→09, then loop. One continuous film of Skardu, not a slideshow.
-
-**Source files:** `hero-videos/hero_01.mp4` … `hero_09.mp4`, posters `hero-videos/hero_01_poster.jpg` … `hero_09_poster.jpg`.
-
-**Compression (FIRST, before any HTML):**
-- ffmpeg all 9: H.264, **strip audio entirely**, max 1920px wide, CRF ~28, `-movflags +faststart`
-- Target **under ~1.5MB per clip** (sources are 4–6MB). Any clip stubbornly over 2MB → raise its CRF.
-- Compress posters to under 150KB each.
-- Move untouched originals to `hero-videos/originals/` (git-ignored); compressed outputs live in an `assets/` structure of your choosing.
-
-**Playback engine:**
-- Two stacked `<video>` elements taking turns: while A plays, B silently loads the next clip; on A's `ended`, **crossfade** (~0.5s opacity) to B. Cycle 01→09→01 forever.
-- `muted`, `playsinline`; preload ONLY current + next, never all 9.
-- First paint: `hero_01_poster.jpg` shows instantly while hero_01.mp4 loads.
-- `prefers-reduced-motion`: poster only, no videos.
-- Autoplay blocked / data-saver: graceful poster fallback.
-- Headline/subline/CTA overlay a subtle darkening gradient — text must stay readable over ALL 9 clips.
-
-### PHOTOS — hero-photos/ (15 images)
-
-- Compress every used photo for web (max 1600px wide, under ~250KB; thumbnails for the grid can be smaller). Originals untouched.
-- **Story section:** 1 photo — a people/riders shot, editorial placement beside or beneath the text.
-- **The place (seasons) section:** 4 photos — landscape-led, seasonal variety where possible.
-- **Moments band (NEW):** responsive grid of 6 photos between the seasons section and footer. 3×2 on desktop, 2×3 or single column on mobile. No lightbox, no captions, no separate page — just a beautiful, lazy-loaded grid. Section heading comes from copy.md.
-- Nauman will specify which IMG numbers go where during the build; if he hasn't, propose a selection (favour variety: bridge, animals, action, landscape, people) and let him swap.
-
-### Technical requirements
-- Plain HTML + CSS + vanilla JavaScript. No frameworks, no build step.
-- Two pages: `index.html`, `contact.html`.
-- Mobile-first responsive.
-- WhatsApp links: `https://wa.me/923554437090`
-- Shared header (logo text + two nav links) and footer.
-- Lazy-load everything below the fold.
-
-### Page structure — index.html
-1. Hero: video reel + headline, subline, WhatsApp CTA
-2. Status strip: "Bike rentals — open now · Mountain cafe & brangsas — coming late 2027"
-3. The story (two short paragraphs + 1 photo)
-4. The place / seasons (copy + 4 photos)
-5. **Moments** (6-photo grid)
-6. Footer: WhatsApp, location line, © Cycling Markhor
-
-### Page structure — contact.html
-1. Short headline + WhatsApp explanation
-2. Big WhatsApp button
-3. Location line (Skardu, Gilgit-Baltistan, Pakistan)
-4. Same footer
-
-All copy is in `text/copy.md`.
+1. Confirm this file + the new `text/copy.md` are in place (they are if you're reading this).
+2. Skim the **homepage reel order** in Phase 2 below — the opening two clips decide first impressions. Disagree? Just tell Claude Code to swap.
+3. That's it. No renaming, no picking — everything is pre-assigned this time. You veto during the build.
 
 ---
 
-## Phase 2 — Build (2–3 hrs)
+## Phase 1 — Foundations (FOR Claude Code)
 
-1. Terminal → `cd` into the project folder → `claude`.
+### Brand palette (unchanged — already in style.css)
+- `--charcoal: #2B2E33` · `--stone: #A89F91` · `--snow: #FAFAF8`
+- `--turquoise: #2E9E9B` — SIGNATURE accent, sparingly (the Indus in winter)
+- `--blossom: #B8A6C9` — whisper accent only
+
+### Typography (unchanged)
+Fraunces for headlines, Inter for body. Generous whitespace, calm editorial pacing. Style references: dolkharladakh.com, a travel magazine feature about Skardu — never a rental-shop flyer.
+
+### Logo (NEW)
+- Header: `logo-light.png` (white V2) over hero media / dark surfaces; `logo-dark.png` (V1) on light surfaces. Render ~150–180px wide, retina-ready, compressed <40KB each.
+- Favicon + social/OG fallback image: from `logo-mark.png`.
+- The logo says "CYCLING MARKHOR CAFÉ" — that's correct branding, keep as-is.
+
+### Asset pipeline (run ONCE, before building pages)
+- Originals in `hero-photos-final/`, `hero-videos-final/`, `logo/` are NEVER modified and are **git-ignored**. Compressed outputs → `assets/img/`, `assets/vid/`, `assets/brand/`.
+- Photos: max 1600px long edge, quality → **≤250KB**; grid thumbnails 800px → ≤120KB.
+- Videos: H.264, **strip audio**, keep native resolution (1920×1080 / 1080×1920), CRF ~28, `-movflags +faststart`, target **≤2MB per clip** (raise CRF per stubborn clip).
+- Posters: ≤150KB.
+- Delete the old `assets/photos/` + `assets/videos/` (v3 media) once the new pipeline output is confirmed.
+
+### Shared components
+- **Header:** logo + nav — Home · Our Dream · Our Fleet · Our Team · Precious Humans · Where We Ride · Contact. Transparent over hero media, solid charcoal variant elsewhere. Hamburger under ~52rem.
+- **Footer** (all pages): WhatsApp `https://wa.me/923554437090` · Call `tel:+923554437090` · `info@cyclingmarkhor.tours` · Instagram `https://instagram.com/cyclingmarkhor.tours` · "Skardu, Gilgit-Baltistan, Pakistan" · © Cycling Markhor.
+- **Reel engine** (`js/reel.js`): keep the two-`<video>` crossfade pattern exactly — it's the jitter fix. Generalise it to take any clip list so other pages can use it.
+- **Ambient loop** (NEW): for the four forward+reverse pairs (blind-lake, lake, bridge, broq-timelapse) play forward clip then its reverse — a seamless palindrome background loop. Muted, autoplay-in-viewport, poster-first.
+- **Vertical reel strip** (NEW): the 7 vertical clips render inside phone-frame cards, horizontally scrollable on mobile. IntersectionObserver: play muted when visible, pause when not. `preload="none"`, poster-first.
+- **Video card** (NEW): poster + play affordance; tap/hover to play muted inline. Used on Team ("Broko is our hero") and route cards.
+
+### Performance, a11y, SEO — non-negotiables
+- Lazy-load ALL below-fold media; `preload="none"` on every non-hero video.
+- `prefers-reduced-motion` → posters everywhere, no autoplay.
+- Alt text on everything. **Rule: never name the guesthouse where fleet photos were taken — describe generically ("the fleet indoors", "a room in Hussainabad").** Lowercase "broq" as a cultural term (high pasture) is fine.
+- Per-page `<title>` + meta description (drafts in copy.md), OG image per page (hero of that page).
+- **All internal links RELATIVE** (no leading `/`) — the site must work at `nauman-umair.github.io/cycling-markhor/` before the custom domain lands.
+- A tiny custom `404.html`: the `yak-attack.jpg` photo + "Wrong turn. Even the yaks are confused." + link home.
+
+---
+
+## Phase 2 — The seven pages (FOR Claude Code — exact asset map)
+
+Build order (commit after each): **Home → Contact → Our Fleet → Our Team → Precious Humans → Where We Ride → Our Dream.** All words from `text/copy.md` — do not invent copy.
+
+**Reuse rule:** homepage teaser images MAY repeat on their full page; avoid repeats BETWEEN interior pages.
+
+### 1. Home — `index.html` (upgrade existing)
+- **Hero reel** (10 clips, this order): `blind-lake` → `nauman-hassnain-ejju-broko-cycling-towards-kachura` → `pov-into-shigar` → `khamosh-waterfall` → `sarfaranga-desert` → `hassnain-crossing-bridge` → `shigar` → `cycling-towards-gulabpur` → `broq-timelapse` → `view-from-broq`. Poster of clip 1 paints first. Headline/CTA overlay per copy.
+- Status strip (copy unchanged).
+- **The story** + photo `nauman-and-hassnain-4` (founders on the rocks by the river).
+- **The place / seasons** — 4 photos: `nauman-in-shigar`, `surviving-sub-zero` (winter) · `nauman-ejju-and-broko-in-ghundus-valley`, `ejju-nauman-in-shigar` (summer).
+- **Explore cards** (NEW — 6 door-cards to the other pages, copy in copy.md): Our Dream `brangsas-from-dream-to-sand-1` · Our Fleet `canyon-fleet-1` · Our Team `le-ejju-and-broko` · Precious Humans `nauman-and-kids-2` · Where We Ride `grizl-pov` · Contact = flat turquoise card, no photo.
+- **Moments grid** (6): `nauman-and-ejju-dangerous-river-crossing`, `yak-attack`, `nauman-with-sarfaranga-in-background-1`, `hassnain-loading-bicycle-in-upper-kachura`, `ejju-broko-and-nauman-riding-towards-sildi`, `night-view-from-broq`.
+
+### 2. Contact — `contact.html` (upgrade existing)
+- Headline + body per copy. Four buttons: WhatsApp (big, primary) · Call · Email · Instagram.
+- Small footer photo strip: `nauman-and-hassnain-3`.
+- ⚠️ `info@cyclingmarkhor.tours` isn't receiving mail until Phase 5c is done — fine to build now, just don't skip 5c.
+
+### 3. Our Fleet — `our-fleet.html`
+- Hero: `canyon-fleet-1` full-bleed.
+- **Lead trio cards:** `canyon-grizl` (Grizl) · `canyon-grail` (Grail) · `grand-canyon` (Grand Canyon).
+- Gallery: `canyon-fleet-2`, `canyon-fleet-3`, `canyon-fleet-4`, `canyon-fleet-5`, `canyon-fleet-inside-broq-1..3`, `canyon-grizl-inside-broq`, `grizl-and-grail`, `cycling-markhor` (bikes on the rack in mist), `bikes-inside-mountains-inside`.
+- **The whole stable** — text list from copy.md (Hassnain's full rental list). No prices, no sizes — deliberate.
+- **Support vehicle block:** `prado-with-river-and-mountains-in-the-background-1`, `prado-with-bikes-but-without-logos`.
+- CTA: WhatsApp availability check.
+
+### 4. Our Team — `our-team.html`
+- Hero: ambient video `nauman-hassnain-ejju-broko-cycling-towards-kachura` (all four riding), poster fallback.
+- **Founder cards:** Numaan Kashmiri — `nauman.jpg` · Hassnain "Hassu" Balti — poster of `hassnain-going-down-stairs-to-upper-kachura-lake` (vertical action frame).
+- **Rider cards:** Ejju (Ejaz) — `le-ejju` · Broko (Ghulam) — `le-broko`, and tapping Broko's card plays `broko-is-our-hero.mp4` inline (the easter egg the filename deserves).
+- **Founders' candids strip:** `nauman-and-hassnain-1`, `-2`, `-3` + short clip `hassnain-and-nauman.mp4`.
+- **"Better together" mosaic** (curate ~6 from): `nauman-broko-and-ejju-1/2`, `nauman-ejju-and-broko-1/2`, `broko.jpg`, `broko-in-ghundus`, `ejju-2`, `nauman-in-ghundus`, vertical clip `ejju-nauman-broko.mp4`, clips `nauman-hassnain-riding-together-1/2`, `broko-and-chocolate-rocks`.
+
+### 5. Precious Humans — `our-precious-humans.html`
+- Hero: `nauman-and-kids-1` (the escort up the village path).
+- **Kids block:** `nauman-in-shigar-with-kids`, `nauman-and-kids-2`, `prado-and-kids`, `ejju-and-m-hassan` (caption names M Hassan), `hassnain-arsalan-and-broko` (caption names Arsalan).
+- **"And friends" block:** vertical reel strip — `cat-near-khamosh-waterfall`, `petting-cat-near-khamosh-waterfall`, `ejju-and-nauman-petting-cat-near-khamosh-waterfall`, `yaks-in-shigar` · horizontal clips `pov-sheep`, `pov-ducks` · photo `yak-attack`.
+- **"Moments of stillness" block** (quiet, respectful, generous whitespace): `ejju-in-prostration-2` large, `ejju-praying-1`, `ejju-in-prostration-1` · `labayak-ya-hussain.mp4` as tap-to-play (NOT autoplay). Copy exactly as written — no additions.
+
+### 6. Where We Ride — `where-we-ride.html`
+- Hero: ambient palindrome `blind-lake` + `blind-lake-reverse` (the turquoise mirror), title overlay.
+- **Route cards** (each: name, blurb from copy.md, media; loop videos muted-in-viewport):
+  1. Shigar Valley — `pov-into-shigar.mp4` · photo `nauman-and-ejju-climbing-to-shigar`
+  2. Blind Lake (Jarba Tso) — `gravel-near-blind-lake.mp4` · `nauman-and-ejju-cycling-towards-blind-lake.mp4` · photo `nauman-and-ejju-gravel-ride-to-blind-lake`
+  3. Upper Kachura — `riding-towards-kachura.mp4`
+  4. Sarfaranga Cold Desert — `sarfaranga-climb.mp4` + `sarfaranga-desert.mp4` · photo `nauman-with-sarfaranga-in-background-2`
+  5. Khamosh Waterfall — `khamosh-waterfall.mp4`
+  6. Masrur Rock — `hassnain-climbing-masrur-rock.mp4` · vertical `ejju-and-hassnain-going-up-masrur.mp4` · photo `ejju-headed-to-masrur-rock`
+  7. The suspension bridges — `pov-crossing-bridge.mp4` · palindrome `bridge-reverse` · photo `nauman-and-ejju-dangerous-river-crossing`
+  8. Sildi road — `pov-towards-sildi.mp4` · photo `ejju-broko-and-nauman-riding-towards-sildi`
+  9. Ghundus & Gol — `exiting-gol.mp4` · photos `broko-in-ghundus`, `nauman-ejju-and-broko-in-ghundus-valley`
+  10. Gulabpur — `cycling-towards-gulabpur.mp4`
+  11. Winter riding — `pov-frozen-river.mp4`
+  12. Sharing the road — `hassnain-pov-crossing-tractor.mp4` + `pov-more-ducks.mp4` (links to Precious Humans)
+- Extra ambient available: `lake-reverse`, `shigar.mp4`, `view-from-broq`/`broq-timelapse-reverse` — use if a section needs breathing room.
+
+### 7. Our Dream — `our-dream.html`
+- Hero: `brangsas-from-dream-to-sand-1` full-bleed (the plan drawn in the sand — the whole page in one image).
+- The land story + `brangsas-from-dream-to-sand-2`.
+- Ambient palindrome band: `broq-timelapse` + `broq-timelapse-reverse`.
+- **Winter block:** `surviving-sub-zero` (the campfire) — copy explains why winters shape the build.
+- **"The cafe already travels" block:** `cycling-markhor-cafe-side-logo`, `cycling-markhor-cafe-back-logo` (the Prado wearing the brand).
+- **Timeline:** Now → First cutting → Late 2027 (rows in copy.md).
+- Mood image to close: `night-view-from-broq`.
+- CTA: follow @cyclingmarkhor.tours + WhatsApp.
+
+### Benched (deliberately unused — list them in LATER.md, do not force in)
+`brangsas` extras none · photos: `nauman-and-ejju.jpg`, `ejju-1`, `le-broko`/`le-ejju` duplicates fine, `nauman-with-sarfaranga-in-background`(plain + `-1` if unused), `nauman-and-hassnain-2` (if strip uses 3), `canyon-fleet` spares, `nauman-in-shigar-with-kids` spares, `broko-nauman-and-ejju-climbing-to-shigar`, `ejju-nauman-in-shigar` dupes · clips: `blind-lake-reverse` (used only as palindrome half), `hassnain-broq-stairs-1`, `hassnain-broq-staris-2`, `lake-reverse`, `pov-ducks` spare, `hassnain-and-nauman` if strip crowds. Benched ≠ deleted — they're tomorrow's refresh content.
+
+---
+
+## Phase 3 — Build (Nauman + Claude Code, the fun part)
+
+1. Terminal → `cd ~/Desktop/cycling-markhor` → `claude` → `/model` → Fable 5, **High** for the build (drop effort later for tweaks).
 2. First prompt:
 
-   > Read PLAN.md. Set this folder up as a git repository. Then: (1) compress the hero videos, posters, and photos exactly per the brief, (2) build the landing page with the hero video reel and Moments grid, (3) build the contact page. Copy is in text/copy.md. Then start a local preview.
+   > Read PLAN.md and text/copy.md. Phase 1 first: fix the noted filenames into the pipeline, run the full asset pipeline (compress all photos, clips, posters, logos into assets/), update .gitignore for the -final originals, delete superseded v3 assets. Commit. Then Phase 2: build the pages in the stated order, using the exact asset map and copy. Commit after each page. Start a local preview when Home is rebuilt.
 
-3. **Test the reel hard first:**
-   - Smooth crossfades, or flash/stutter between clips?
-   - Autoplays on your phone? (Ask Claude Code how to open the preview on your phone over local network — iPhones need `playsinline`.)
-   - Text readable over ALL 9 clips, including the brightest?
-   - Page feels fast?
+3. **Test as you go, on your phone too** (ask Claude Code for the local-network preview address): reel crossfades clean · vertical clips autoplay when scrolled into view · text readable over every clip · pages feel fast.
+4. Iterate one change at a time; *"commit this progress"* at every "I like this" moment.
 
-4. **Then place your photos:** *"Use IMG_3581 for the story section. Seasons: IMG_8564, IMG_7706, IMG_0048, IMG_3889. Moments grid: IMG_4186, IMG_8635, IMG_3852, IMG_7692, IMG_3305, IMG_4113."* (Your picks — these are examples.) Swap freely until it feels right.
-
-5. **Iterate, one change at a time.** Commit at every "I like this" moment: *"commit this progress."*
-
-> 🎓 **commit** = a named snapshot of the whole project. A save point in a video game. Later change ruins everything? "Go back to the last commit." Commit often — it's free.
+> 🎓 **git status** — the "where am I?" command. Shows what's changed since the last commit. Free to run any time, changes nothing. When a session's been long and you've lost the plot: `git status`.
 
 ---
 
-## Phase 3 — Publish to GitHub Pages (30 min)
+## Phase 4 — Publish to GitHub Pages (30 min)
 
-1. > Create a GitHub repository called cycling-markhor under my account, push the project to it (excluding video originals), and enable GitHub Pages so the site is live.
+1. > Create a public GitHub repository called cycling-markhor under nauman-umair, push everything (originals stay git-ignored), and enable GitHub Pages from the main branch.
 
-> 🎓 **push** = uploading your commits from laptop to GitHub. With GitHub Pages, every push updates the live site automatically — push IS publishing. First push carries ~15MB of media, so it'll be slower than usual. Normal.
+2. First push carries ~110MB — slower than usual, normal. No file exceeds GitHub's 100MB limit (biggest compressed clip ≈ 2MB).
+3. Open **https://nauman-umair.github.io/cycling-markhor/** — click through all 7 pages. (Links are relative, so everything works at this address too.)
 
-> 🎓 **pull** = the opposite: downloading the latest commits FROM GitHub. Not needed today; essential the day you or Hassnain work from a second machine: **pull → work → commit → push.**
-
-2. Open the `<username>.github.io/cycling-markhor` URL. Watch your reel play on the live internet.
+> 🎓 **remote / origin** — "origin" is just the nickname for your repo's copy on GitHub. **push** = send commits to origin (and Pages republishes automatically — push IS publishing). **pull** = fetch the latest from origin; matters the day a second machine or Hassu joins.
 
 ---
 
-## Phase 4 — Connect cyclingmarkhor.com (30 min + waiting)
+## Phase 5 — Domains, redirect, email (45 min + DNS waiting)
 
-### 4a. Namecheap
-Domain List → **Manage** cyclingmarkhor.com → **Advanced DNS** → delete parking records → add:
+### 5a. cyclingmarkhor.com → the site
+Namecheap → Domain List → **Manage** cyclingmarkhor.com → **Advanced DNS** → remove parking records → add:
 
 | Type | Host | Value |
 |------|------|-------|
@@ -160,45 +198,39 @@ Domain List → **Manage** cyclingmarkhor.com → **Advanced DNS** → delete pa
 | A Record | @ | 185.199.109.153 |
 | A Record | @ | 185.199.110.153 |
 | A Record | @ | 185.199.111.153 |
-| CNAME | www | `<your-github-username>.github.io.` |
+| CNAME | www | `nauman-umair.github.io.` |
 
-(GitHub's Pages IPs — verify against GitHub's docs if anything fails.)
+Then tell Claude Code: *"Set the custom domain cyclingmarkhor.com on GitHub Pages and add the CNAME file."* Once the domain resolves: repo Settings → Pages → **Enforce HTTPS** (cert can take up to 24h — greyed out means come back tomorrow).
 
-### 4b. GitHub
-> Configure GitHub Pages for this repository to use the custom domain cyclingmarkhor.com, and make sure a CNAME file exists in the repo.
+### 5b. cyclingmarkhor.tours → redirect
+Namecheap → Manage cyclingmarkhor.tours → set a **Permanent (301) URL redirect**: `@` and `www` → `https://cyclingmarkhor.com`. (The Instagram handle @cyclingmarkhor.tours still works independently — handles aren't DNS.)
 
-### 4c. Wait, then secure
-- DNS propagation: 5 minutes to a few hours. Tea.
-- Once the domain loads: repo Settings → Pages → **Enforce HTTPS** (cert can take up to 24h; greyed out = come back tomorrow).
-
----
-
-## Phase 5 — Launch checks (30 min)
-
-- [ ] cyclingmarkhor.com loads on your phone **on mobile data**
-- [ ] Reel plays and loops through all 9 on phone AND laptop
-- [ ] Crossfades smooth on mobile data, not just wifi
-- [ ] Moments grid loads as you scroll (lazy-loading working)
-- [ ] WhatsApp button opens a chat with Hassnain — send him a test message; it doubles as the launch announcement 🎉
-- [ ] Text readable over every clip
-- [ ] Both pages right at phone and laptop widths
-- [ ] Final commit: *"commit and push — launch day complete."*
+### 5c. info@cyclingmarkhor.tours → your inbox
+Namecheap → Manage cyclingmarkhor.tours → **Email Forwarding**: `info` → your personal email. Accept the MX-record change it asks for. Send yourself a test from another account. **Do this before announcing the site** — the address is printed on the Contact page.
 
 ---
 
-## This week (not today)
+## Phase 6 — Launch checks
 
-- Watch reel performance for real visitors on slow connections; consider a lighter 720p mobile set if needed
-- The 4 unused photos + full gallery page idea → `LATER.md`
-- Socials sorted → footer icons; Instagram swap done → announce the site there
+- [ ] cyclingmarkhor.com on your phone **on mobile data** — all 7 pages
+- [ ] Reel loops through all 10; crossfades smooth (the jitter stays dead)
+- [ ] Vertical clips play in the phone-frames as you scroll
+- [ ] cyclingmarkhor.tours redirects
+- [ ] WhatsApp button → test message to Hassu (that's also the launch announcement 🎉)
+- [ ] Call button dials · Instagram opens the profile · email test received
+- [ ] The "moments of stillness" section reads with the dignity it deserves — final eye check
+- [ ] *"commit and push — full site launch complete."*
+- [ ] Screenshot the live homepage. First one goes to the team in Skardu.
 
 ---
+
+## This month (not launch day) → LATER.md
+Prices & sizes when ready · booking flow · Instagram feed embed · reviews/testimonials · Urdu snippets · Google Search Console + a sitemap.xml · seasonal photo rotations from the benched list · cafe construction diary on Our Dream.
 
 ## If things go wrong
-
-- **Reel stutters / white flash between clips:** tell Claude Code which clips, which device — usually preload timing.
-- **iPhone won't autoplay:** check `muted` + `playsinline` attributes. #1 cause.
-- **Broke, cause unknown:** describe exactly what you did and what you see.
-- **Really broken:** "revert to the last commit where things worked."
-- **Domain dead after a few hours:** ask Claude Code to review the DNS records with you — typo in an A record, usually.
+- **Reel stutter:** which clips, which device — preload timing, usually.
+- **iPhone autoplay refuses:** `muted` + `playsinline` attributes; Low Power Mode also blocks autoplay — that's the phone, not the site.
+- **Push rejected (big files):** an original leaked past .gitignore — tell Claude Code to find and untrack it.
+- **Pages 404s under the subpath:** an absolute link sneaked in — tell Claude Code to make all paths relative.
+- **Domain dead hours later:** review the A records together — typo, usually.
 - **Stuck 30+ min:** close the laptop, walk. It launches tomorrow. Still no hard deadline.
