@@ -114,7 +114,7 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 ### 3. Our Fleet — `our-fleet.html`
 - Hero: `canyon-fleet-1` full-bleed.
 - **Lead trio cards:** `canyon-grizl` (Grizl) · `canyon-grail` (Grail) · `grand-canyon` (Grand Canyon).
-- Gallery: `canyon-fleet-2`, `canyon-fleet-3`, `canyon-fleet-4`, `canyon-fleet-5`, `canyon-fleet-inside-broq-1..3`, `canyon-grizl-inside-broq`, `grizl-and-grail`, `cycling-markhor` (bikes on the rack in mist), `bikes-inside-mountains-inside`.
+- Gallery: `canyon-fleet-2`, `canyon-fleet-3`, `canyon-fleet-4`, `canyon-fleet-5`, `canyon-fleet-inside-broq-1..3`, `canyon-grizl-inside-broq`, `grizl-and-grail`, `bikes-inside-mountains-inside`. (`cycling-markhor` moved to Our Dream's cafe-travels block — lives only there.)
 - **The whole stable** — text list from copy.md (Hassnain's full rental list). No prices, no sizes — deliberate.
 - **Support vehicle block:** `prado-with-river-and-mountains-in-the-background-1`, `prado-with-bikes-but-without-logos`.
 - CTA: WhatsApp availability check.
@@ -150,13 +150,12 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 - Extra ambient available: `lake-reverse`, `shigar.mp4`, `view-from-broq` — use if a section needs breathing room.
 
 ### 7. Our Dream — `our-dream.html`
-- Hero: `brangsas-from-dream-to-sand-1` full-bleed (the plan drawn in the sand — the whole page in one image).
-- The land story + `brangsas-from-dream-to-sand-2`.
-- Ambient band: `view-from-broq` as a simple loop (broq-timelapse dropped — too shaky). If the loop restart looks jarring when built, cut the band and let the photos carry the section.
-- **Winter block:** `surviving-sub-zero` (the campfire) — copy explains why winters shape the build.
-- **"The cafe already travels" block:** `cycling-markhor-cafe-side-logo`, `cycling-markhor-cafe-back-logo` (the Prado wearing the brand).
-- **Timeline:** Now → First cutting → Late 2027 (rows in copy.md).
-- Mood image to close: `night-view-from-broq`.
+- Hero: `broko-ejju-prado-and-nauman` full-bleed — vertical photo, subject low in frame, cover crop anchored to the BOTTOM (`object-position: center bottom`) so the riders and the Prado stay visible at desktop and mobile widths.
+- The land story + the sand PAIR: `brangsas-from-dream-to-sand-1` + `brangsas-from-dream-to-sand-2` side by side, both crop-anchored bottom so the sand drawings are always the visible part.
+- (Ambient band cut — view-from-broq loop restart was jarring; photos carry the page.)
+- **Winter block:** `hassnain-arsalan-and-broko` — copy explains why winters shape the build. (`surviving-sub-zero` benched.)
+- **"The cafe already travels" block:** one photo only — `cycling-markhor` (the misty roof-rack shot, moved off Our Fleet so it lives only here). Copy trimmed: children line gone. (`cycling-markhor-cafe-side-logo` + `-back-logo` benched.)
+- **Timeline:** Now → First cutting → Late 2027 (rows in copy.md) + photo `prado-with-river-and-mountains-in-the-background-2`.
 - CTA: follow @cyclingmarkhor.tours + WhatsApp.
 
 ### Benched (deliberately unused — list them in LATER.md, do not force in)

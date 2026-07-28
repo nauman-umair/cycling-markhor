@@ -183,7 +183,7 @@ We've sat on this plot in the sub-zero months, around a fire, watching the peaks
 
 ### The cafe already travels
 **Heading:** Until then, the cafe travels
-The logo is already out working — on the Prado, up and down the valleys, loaded with bikes and, more often than not, children. Consider it the cafe's advance party.
+The logo is already out working — on the Prado, up and down the valleys, loaded with bikes. Consider it the cafe's advance party.
 
 ### Timeline
 - **Now** — Bike rentals, rolling out of Skardu

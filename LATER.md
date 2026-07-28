@@ -16,9 +16,10 @@ Ideas and content deliberately parked. Nothing here blocks launch.
 Photos:
 - `nauman-and-ejju.jpg` · `ejju-1` · `ejju-nauman-in-shigar` (off the Home collage)
 - `broko-nauman-and-ejju-climbing-to-shigar` · `nauman-ejju-and-broko-1`
-- `broko-ejju-prado-and-nauman` · `nauman-ejju-and-broko-in-ghundus-valley`
-  (off Home — still on Where We Ride)
-- `prado-with-river-and-mountains-in-the-background-2`
+- `nauman-ejju-and-broko-in-ghundus-valley` (off Home — still on Where We Ride)
+- `surviving-sub-zero` (off Home and Our Dream)
+- `cycling-markhor-cafe-side-logo` · `cycling-markhor-cafe-back-logo`
+  (off Our Dream — the misty `cycling-markhor` shot carries the block now)
 - `grizl-and-grail` spares from the fleet shoot
 
 Clips:

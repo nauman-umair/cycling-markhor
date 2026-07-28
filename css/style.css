@@ -514,6 +514,9 @@ h1, h2, h3 {
   object-fit: cover;
 }
 
+/* Bottom-anchored cover crop — for photos whose subject sits low in frame */
+.page-hero-media--bottom { object-position: center bottom; }
+
 .page-hero .hero-shade { position: absolute; inset: 0; }
 
 .page-hero-content {
@@ -636,6 +639,7 @@ h1, h2, h3 {
   object-fit: cover;
   border-radius: 4px;
 }
+.duo-grid--anchor-bottom img { object-position: center bottom; }
 
 /* ---------- Route cards (Where We Ride) ---------- */
 
