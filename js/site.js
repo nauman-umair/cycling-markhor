@@ -160,7 +160,9 @@
 
     // On true hover devices the hover owns play/pause (a click would fight
     // the mouseenter that just started playback); on touch, tap toggles.
-    if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    // data-tap-only cards never hover-play (e.g. the stillness clip).
+    if (!card.hasAttribute('data-tap-only') && !reduceMotion &&
+        window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
       card.addEventListener('mouseenter', start);
       card.addEventListener('mouseleave', stop);
     } else {
