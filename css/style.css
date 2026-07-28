@@ -517,6 +517,10 @@ h1, h2, h3 {
 /* Bottom-anchored cover crop — for photos whose subject sits low in frame */
 .page-hero-media--bottom { object-position: center bottom; }
 
+/* Our Dream hero: the sand drawings sit in the lower part of the frame —
+   position tuned and screenshot-verified at desktop + phone widths */
+.page-hero-media--sand { object-position: center 85%; }
+
 .page-hero .hero-shade { position: absolute; inset: 0; }
 
 .page-hero-content {

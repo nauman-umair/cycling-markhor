@@ -19,7 +19,7 @@ Photos:
 - `nauman-ejju-and-broko-in-ghundus-valley` (off Home — still on Where We Ride)
 - `surviving-sub-zero` (off Home and Our Dream)
 - `cycling-markhor-cafe-side-logo` · `cycling-markhor-cafe-back-logo`
-  (off Our Dream — the misty `cycling-markhor` shot carries the block now)
+- `prado-with-river-and-mountains-in-the-background-2`
 - `grizl-and-grail` spares from the fleet shoot
 
 Clips:

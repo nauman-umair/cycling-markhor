@@ -150,12 +150,13 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 - Extra ambient available: `lake-reverse`, `shigar.mp4`, `view-from-broq` — use if a section needs breathing room.
 
 ### 7. Our Dream — `our-dream.html`
-- Hero: `broko-ejju-prado-and-nauman` full-bleed — vertical photo, subject low in frame, cover crop anchored to the BOTTOM (`object-position: center bottom`) so the riders and the Prado stay visible at desktop and mobile widths.
-- The land story + the sand PAIR: `brangsas-from-dream-to-sand-1` + `brangsas-from-dream-to-sand-2` side by side, both crop-anchored bottom so the sand drawings are always the visible part.
+- Hero: `brangsas-from-dream-to-sand-1` full-bleed — the sand drawings sit low in the photo, so the cover crop uses `object-position: center 85%`, screenshot-verified at desktop and phone widths (drawings unmistakably in frame in both).
+- The land story + ONE photo: `brangsas-from-dream-to-sand-2` at its natural aspect ratio (no crop) so the drawing is fully visible.
 - (Ambient band cut — view-from-broq loop restart was jarring; photos carry the page.)
 - **Winter block:** `hassnain-arsalan-and-broko` — copy explains why winters shape the build. (`surviving-sub-zero` benched.)
-- **"The cafe already travels" block:** one photo only — `cycling-markhor` (the misty roof-rack shot, moved off Our Fleet so it lives only here). Copy trimmed: children line gone. (`cycling-markhor-cafe-side-logo` + `-back-logo` benched.)
-- **Timeline:** Now → First cutting → Late 2027 (rows in copy.md) + photo `prado-with-river-and-mountains-in-the-background-2`.
+- **"The cafe already travels" block:** `broko-ejju-prado-and-nauman` at natural aspect ratio — riders and Prado fully in frame, no cropping. Copy trimmed: children line gone.
+- **Timeline:** Now → First cutting → Late 2027 (rows in copy.md) + photo `cycling-markhor` (the misty roof-rack shot — lives only on this page; `prado-with-river-and-mountains-in-the-background-2`, `cycling-markhor-cafe-side-logo`, `-back-logo` benched).
+- **Standing rule (whole site):** portrait photos in wide containers get natural aspect ratio, contain-on-blur, or a visually verified `object-position` — never a blind cover crop. Verify crops with Chrome screenshots at desktop AND phone widths before calling a section done.
 - CTA: follow @cyclingmarkhor.tours + WhatsApp.
 
 ### Benched (deliberately unused — list them in LATER.md, do not force in)
