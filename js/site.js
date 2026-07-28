@@ -64,6 +64,7 @@
     var active = 0;
     var loaded = false;
     var handingOver = false;
+    var gen = 0;   // bumped to abort in-flight handovers (e.g. scrolled away)
 
     // Same dissolve pattern as reel.js: start the other half ~0.8s before
     // the current one ends, confirm frames are advancing, then crossfade
@@ -71,6 +72,7 @@
     function handover() {
       if (handingOver) return;
       handingOver = true;
+      var myGen = ++gen;
       var current = vids[active];
       var next = vids[1 - active];
 
@@ -79,12 +81,13 @@
 
       var confirmed = false;
       function confirm() {
-        if (confirmed) return;
+        if (gen !== myGen || confirmed) return;
         if (next.currentTime > 0.01) {
           confirmed = true;
           next.classList.add('is-visible');
           current.classList.remove('is-visible');
           window.setTimeout(function () {
+            if (gen !== myGen) return;
             current.pause();
             active = 1 - active;
             handingOver = false;
@@ -118,8 +121,15 @@
               vids[0].classList.add('is-visible');
             });
           }
+          // If an aborted handover left the wrong half visible, resync.
+          if (vids[1 - active].classList.contains('is-visible')) {
+            vids[1 - active].classList.remove('is-visible');
+            vids[active].classList.add('is-visible');
+          }
           safePlay(vids[active]);
         } else {
+          gen++;                 // abort any in-flight handover
+          handingOver = false;
           vids.forEach(function (v) { v.pause(); });
         }
       });
