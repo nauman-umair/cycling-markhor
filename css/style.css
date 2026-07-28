@@ -626,6 +626,26 @@ figcaption.caption {
 }
 .section--stillness .lede { max-width: 40rem; }
 
+/* ---------- Timeline (Our Dream) ---------- */
+
+.timeline {
+  margin-top: 2.25rem;
+  max-width: 40rem;
+}
+.timeline-row {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 1.25rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(168, 159, 145, 0.25);
+}
+.timeline-row dt {
+  font-weight: 600;
+  color: var(--turquoise);
+  letter-spacing: 0.03em;
+}
+.timeline-row dd { margin: 0; }
+
 /* ---------- CTA band ---------- */
 
 .cta-band {
