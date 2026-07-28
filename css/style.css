@@ -409,6 +409,17 @@ h1, h2, h3 {
   transform: scale(1.25);
 }
 
+/* Compact slideshow — constrained width, for small photo sets (Prado) */
+.slideshow--compact {
+  max-width: 46rem;
+  margin: 2.5rem auto 0;
+  height: 45vh;
+  border-radius: 4px;
+}
+@media (min-width: 48rem) {
+  .slideshow--compact { height: 55vh; }
+}
+
 /* Moments */
 
 .moments-grid {
@@ -526,6 +537,18 @@ h1, h2, h3 {
 /* Heroes whose subject sits in the lower third (sand drawings, the kids'
    escort) — position tuned and screenshot-verified at desktop + phone widths */
 .page-hero-media--low { object-position: center 85%; }
+
+/* Fleet hero: wide landscape whose subject spans the full width — cover
+   crop (tuned) on desktop, contain-on-blur below tablet width so all
+   three bikes stay visible on phones */
+.page-hero-blur {
+  filter: blur(22px) brightness(0.55);
+  transform: scale(1.12);
+}
+.page-hero-media--fleet { object-position: center 75%; }
+@media (max-width: 48rem) {
+  .page-hero .page-hero-media--fleet { object-fit: contain; object-position: center 40%; }
+}
 
 .page-hero .hero-shade { position: absolute; inset: 0; }
 

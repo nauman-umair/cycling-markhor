@@ -112,11 +112,11 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 - ⚠️ `info@cyclingmarkhor.tours` isn't receiving mail until Phase 5c is done — fine to build now, just don't skip 5c.
 
 ### 3. Our Fleet — `our-fleet.html`
-- Hero: `canyon-fleet-1` full-bleed.
-- **Lead trio cards:** `canyon-grizl` (Grizl) · `canyon-grail` (Grail) · `grand-canyon` (Grand Canyon).
-- Gallery: `canyon-fleet-2`, `canyon-fleet-3`, `canyon-fleet-4`, `canyon-fleet-5`, `canyon-fleet-inside-broq-1..3`, `canyon-grizl-inside-broq`, `grizl-and-grail`, `bikes-inside-mountains-inside`. (`cycling-markhor` moved to Our Dream's cafe-travels block — lives only there.)
-- **The whole stable** — text list from copy.md (Hassnain's full rental list). No prices, no sizes — deliberate.
-- **Support vehicle block:** `prado-with-river-and-mountains-in-the-background-1`, `prado-with-bikes-but-without-logos`.
+- Hero: `canyon-fleet-4` full-bleed — cover crop tuned (center 75%) on desktop; contain-on-blur below tablet width so all three Canyons stay visible on phones (the bikes span the full 16:9 width — no cover crop can hold them in a portrait band). Screenshot-verified.
+- **"The Canyon fleet"** section header above the lead trio: `canyon-grizl` (Grizl — light sage green, frame bag) · `canyon-grail` (Grail — dark green) · `grand-canyon` (Grand Canyon — red). Colours baked into alt text, verified against the photos.
+- **Fleet SLIDESHOW** (contain-on-blur, same component as Home's Moments): `canyon-fleet-1`, `-2`, `-3`, `-5`, `canyon-fleet-inside-broq-1..3`, `canyon-grizl-inside-broq`, `grizl-and-grail`, `grizl-pov`. (`bikes-inside-mountains-inside` lives on Home's collage; `cycling-markhor` on Our Dream.)
+- **The whole stable** — text list from copy.md: the three Canyons named + Trek Farley fat bike, Trek 29er, BMC Sportelite 27.5, Merida Scultura, Giant 26", Giant hybrid, GT hybrid, Precision hybrid, Anchor hybrid. No prices, no sizes — deliberate.
+- **Support vehicle block:** copy trimmed (school-bus line gone) + compact slideshow of `prado-with-bikes-but-without-logos`, `prado-with-river-and-mountains-in-the-background-1`, `-2`.
 - CTA: WhatsApp availability check.
 
 ### 4. Our Team — `our-team.html`

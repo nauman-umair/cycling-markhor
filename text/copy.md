@@ -79,12 +79,12 @@ Cycling Markhor, Skardu, Gilgit-Baltistan, Pakistan
 ### The whole stable
 **Kicker:** Every rider covered
 **Heading:** The whole stable
-Trek Farley fat bike · Trek 29er mountain bike · BMC Sportelite 27.5 mountain bike · Merida Scultura road bike · two gravel bikes · Giant 26" mountain bike · Giant hybrid · GT hybrid · Precision hybrid · Anchor hybrid
+Canyon Grizl · Canyon Grail · Canyon Grand Canyon · Trek Farley fat bike · Trek 29er mountain bike · BMC Sportelite 27.5 mountain bike · Merida Scultura road bike · Giant 26" mountain bike · Giant hybrid · GT hybrid · Precision hybrid · Anchor hybrid
 Sizes and day rates are a WhatsApp message away — availability shifts with the season, so ask before you fly.
 
 ### Support vehicle
 **Heading:** And the Prado.
-Support vehicle, bike carrier, and — more often than we planned — school bus. Where the fleet goes, it goes.
+Support vehicle and bike carrier. Where the fleet goes, it goes.
 
 ### CTA
 **Button:** Check availability — WhatsApp us
