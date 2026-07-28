@@ -102,9 +102,9 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 - **Hero reel** (10 clips, this order): `blind-lake` → `nauman-hassnain-ejju-broko-cycling-towards-kachura` → `pov-into-shigar` → `khamosh-waterfall` → `sarfaranga-desert` → `hassnain-crossing-bridge` → `shigar` → `cycling-towards-gulabpur` → `riding-towards-kachura` → `view-from-broq`. Poster of clip 1 paints first. Headline/CTA overlay per copy.
 - Status strip (copy unchanged).
 - **The story** + photo `nauman-and-hassnain-4` (founders on the rocks by the river).
-- **The place / seasons** — 4 photos: `nauman-in-shigar`, `surviving-sub-zero` (winter) · `nauman-ejju-and-broko-in-ghundus-valley`, `ejju-nauman-in-shigar` (summer).
+- **The place** — 6-photo COLLAGE (masonry feel, native aspect ratios, no uniform crops; single column on mobile): portraits `nauman-in-shigar`, `night-view-from-broq`, `nauman-broko-and-ejju-2`, `ejju-nauman-in-shigar` + landscapes `nauman-with-sarfaranga-in-background`, `bikes-inside-mountains-inside`. (`nauman-ejju-and-broko-in-ghundus-valley` off Home — still on Where We Ride; `surviving-sub-zero` stays on Our Dream only.)
 - **Explore cards** (NEW — 6 door-cards to the other pages, copy in copy.md): Our Dream `brangsas-from-dream-to-sand-1` · Our Fleet `canyon-fleet-1` · Our Team `le-ejju-and-broko` · Precious Humans `nauman-and-kids-2` · Where We Ride `grizl-pov` · Contact = flat turquoise card, no photo.
-- **Moments grid** (6): `nauman-and-ejju-dangerous-river-crossing`, `yak-attack`, `nauman-with-sarfaranga-in-background-1`, `hassnain-loading-bicycle-in-upper-kachura`, `ejju-broko-and-nauman-riding-towards-sildi`, `night-view-from-broq`.
+- **Moments SLIDESHOW** (full-width, 6 slides in order): `nauman-and-ejju-dangerous-river-crossing`, `yak-attack`, `nauman-with-sarfaranga-in-background-1`, `hassnain-loading-bicycle-in-upper-kachura`, `ejju-broko-and-nauman-riding-towards-sildi`, `nauman-and-kids-1`. One image at a time, slow Ken Burns drift, ~0.8s crossfade every ~3.5s, subtle progress dots, swipe on mobile, preload current+next only, reduced-motion shows the first image static. (`night-view-from-broq` moved to the place collage.)
 
 ### 2. Contact — `contact.html` (upgrade existing)
 - Headline + body per copy. Four buttons: WhatsApp (big, primary) · Call · Email · Instagram.
@@ -160,7 +160,7 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 - CTA: follow @cyclingmarkhor.tours + WhatsApp.
 
 ### Benched (deliberately unused — list them in LATER.md, do not force in)
-`brangsas` extras none · photos: `nauman-and-ejju.jpg`, `ejju-1`, `le-broko`/`le-ejju` duplicates fine, `nauman-with-sarfaranga-in-background`(plain + `-1` if unused), `nauman-and-hassnain-2` (if strip uses 3), `canyon-fleet` spares, `nauman-in-shigar-with-kids` spares, `broko-nauman-and-ejju-climbing-to-shigar`, `ejju-nauman-in-shigar` dupes · clips: `blind-lake-reverse` (used only as palindrome half), `hassnain-broq-stairs-1`, `hassnain-broq-staris-2`, `lake-reverse`, `pov-ducks` spare, `hassnain-and-nauman` if strip crowds, `broq-timelapse` + `broq-timelapse-reverse` (dropped — too shaky; compressed outputs deleted, originals stay). Benched ≠ deleted — they're tomorrow's refresh content.
+`brangsas` extras none · photos: `nauman-and-ejju.jpg`, `ejju-1`, `le-broko`/`le-ejju` duplicates fine, `nauman-and-hassnain-2` (if strip uses 3), `canyon-fleet` spares, `nauman-in-shigar-with-kids` spares, `broko-nauman-and-ejju-climbing-to-shigar`, `ejju-nauman-in-shigar` dupes · clips: `blind-lake-reverse` (used only as palindrome half), `hassnain-broq-stairs-1`, `hassnain-broq-staris-2`, `lake-reverse`, `pov-ducks` spare, `hassnain-and-nauman` if strip crowds, `broq-timelapse` + `broq-timelapse-reverse` (dropped — too shaky; compressed outputs deleted, originals stay). Benched ≠ deleted — they're tomorrow's refresh content.
 
 ---
 

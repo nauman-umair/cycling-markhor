@@ -137,6 +137,114 @@
     io.observe(host);
   });
 
+  /* ---- Moments slideshow: one image at a time, slow Ken Burns drift,
+     0.8s crossfade every ~3.5s, progress dots, swipe on mobile. Only the
+     current and next image are ever loaded (same discipline as the hero
+     reel). Markup: <div class="slideshow" data-slides="a.jpg,b.jpg"
+     data-alts="alt a|alt b"> <img class="slide is-visible" src="a.jpg"> */
+  document.querySelectorAll('.slideshow[data-slides]').forEach(function (host) {
+    var slides = host.getAttribute('data-slides').split(',').map(function (s) {
+      return s.trim();
+    }).filter(Boolean);
+    var alts = (host.getAttribute('data-alts') || '').split('|');
+
+    // Reduced motion / data saver: the first image stays, static.
+    if (slides.length < 2 || reduceMotion || saveData) return;
+
+    var imgs = [host.querySelector('img.slide'), document.createElement('img')];
+    if (!imgs[0]) return;
+    imgs[1].className = 'slide';
+    imgs[1].alt = '';
+    imgs[1].setAttribute('aria-hidden', 'true');
+    host.appendChild(imgs[1]);
+
+    var dotsWrap = document.createElement('div');
+    dotsWrap.className = 'slide-dots';
+    var dots = slides.map(function (_, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Show photo ' + (i + 1) + ' of ' + slides.length);
+      if (i === 0) b.classList.add('is-active');
+      b.addEventListener('click', function () { goTo(i); });
+      dotsWrap.appendChild(b);
+      return b;
+    });
+    host.appendChild(dotsWrap);
+
+    var idx = 0;         // slide index currently shown
+    var active = 0;      // which img element is on top
+    var inView = true;
+    var switching = false;
+
+    function kenBurns(el, i) {
+      el.classList.remove('kb-a', 'kb-b');
+      void el.offsetWidth;               // restart the animation
+      el.classList.add(i % 2 ? 'kb-b' : 'kb-a');
+    }
+
+    function show(i) {
+      if (switching || i === idx) return;
+      switching = true;
+      var cur = imgs[active];
+      var nxt = imgs[1 - active];
+
+      var go = function () {
+        kenBurns(nxt, i);
+        nxt.alt = alts[i] || '';
+        nxt.removeAttribute('aria-hidden');
+        nxt.classList.add('is-visible');
+        cur.classList.remove('is-visible');
+        cur.alt = '';
+        cur.setAttribute('aria-hidden', 'true');
+        dots[idx].classList.remove('is-active');
+        dots[i].classList.add('is-active');
+        active = 1 - active;
+        idx = i;
+        switching = false;
+        var pre = new Image();               // warm the cache for the next one
+        pre.src = slides[(i + 1) % slides.length];
+      };
+      nxt.onload = function () { nxt.onload = null; go(); };
+      nxt.src = slides[i];
+      if (nxt.complete && nxt.naturalWidth) { nxt.onload = null; go(); }
+    }
+
+    function goTo(i) { show((i + slides.length) % slides.length); restart(); }
+
+    var timer = window.setInterval(function () {
+      if (inView && !document.hidden) show((idx + 1) % slides.length);
+    }, 3500);
+    function restart() {
+      window.clearInterval(timer);
+      timer = window.setInterval(function () {
+        if (inView && !document.hidden) show((idx + 1) % slides.length);
+      }, 3500);
+    }
+
+    // Swipe on touch devices.
+    var touchX = null;
+    host.addEventListener('touchstart', function (e) {
+      touchX = e.touches[0].clientX;
+    }, { passive: true });
+    host.addEventListener('touchend', function (e) {
+      if (touchX === null) return;
+      var dx = e.changedTouches[0].clientX - touchX;
+      touchX = null;
+      if (Math.abs(dx) < 40) return;
+      goTo(dx > 0 ? idx - 1 : idx + 1);
+    }, { passive: true });
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { inView = e.isIntersecting; });
+      }, { threshold: 0.25 }).observe(host);
+    }
+
+    // First image drifts too, and the next one warms the cache.
+    kenBurns(imgs[0], 0);
+    imgs[1].src = slides[1];
+  });
+
   /* ---- Video cards: poster + play affordance; tap (or hover, on mouse
      devices) plays muted inline. Markup:
      <figure class="video-card" data-video="x.mp4"> <img> ... </figure> */

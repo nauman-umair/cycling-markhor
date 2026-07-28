@@ -154,6 +154,7 @@ These are the roads and valleys we keep coming back to. Point at one, and we'll 
 - **Khamosh Waterfall** — The "silent" waterfall that all but freezes solid in winter. Worth the detour in any season — the resident cat agrees.
 - **Masrur Rock** — Our hike-a-bike guilty pleasure. Carry up, grin down.
 - **The suspension bridges** — Wood, wire, and the river underneath. Crossing one with a bike on your shoulder is a rite of passage.
+- **Sildi road** — Big skies, empty tarmac and the valley opening ahead. The ride that starts as a warm-up and keeps going.
 - **Ghundus & Gol** — Quiet valley riding past villages that still wave at strangers.
 - **Gulabpur** — The long way round, through poplar tunnels and farmland.
 - **Winter riding** — The crowds leave, the Indus turns turquoise, and the cold rewrites the map. Bring layers; we'll bring the fat bike.
