@@ -63,13 +63,46 @@
 
     var active = 0;
     var loaded = false;
-    vids.forEach(function (v, i) {
+    var handingOver = false;
+
+    // Same dissolve pattern as reel.js: start the other half ~0.8s before
+    // the current one ends, confirm frames are advancing, then crossfade
+    // while the outgoing half keeps playing underneath.
+    function handover() {
+      if (handingOver) return;
+      handingOver = true;
+      var current = vids[active];
+      var next = vids[1 - active];
+
+      try { next.currentTime = 0; } catch (e) {}
+      safePlay(next);
+
+      var confirmed = false;
+      function confirm() {
+        if (confirmed) return;
+        if (next.currentTime > 0.01) {
+          confirmed = true;
+          next.classList.add('is-visible');
+          current.classList.remove('is-visible');
+          window.setTimeout(function () {
+            current.pause();
+            active = 1 - active;
+            handingOver = false;
+          }, 650);
+        } else {
+          requestAnimationFrame(confirm);
+        }
+      }
+      requestAnimationFrame(confirm);
+    }
+
+    vids.forEach(function (v) {
+      v.addEventListener('timeupdate', function () {
+        if (v !== vids[active] || handingOver) return;
+        if (v.duration && v.duration - v.currentTime <= 0.8) handover();
+      });
       v.addEventListener('ended', function () {
-        var next = vids[1 - i];
-        safePlay(next);
-        next.classList.add('is-visible');
-        v.classList.remove('is-visible');
-        active = 1 - i;
+        if (v === vids[active]) handover();
       });
     });
 

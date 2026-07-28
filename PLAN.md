@@ -19,14 +19,15 @@ cycling-markhor/
 ├── assets/                  ← OLD compressed media from v3 — superseded, delete in Phase 1
 ├── hero-photos-final/       ← 66 named photos (45 portrait 2048×2560, 21 landscape 2560×1440)
 ├── hero-videos-final/       ← 42 clips (35 horizontal, 7 vertical) + a poster for every clip
-├── logo/V1 + logo/V2        ← V1 = dark artwork (for light backgrounds), V2 = white (for dark)
+├── logo/tours               ← ACTIVE brand: TOURS logo (dark single-colour artwork with alpha)
+├── logo/V1 + logo/V2        ← CAFÉ logo — archive material, do not use, do not touch
 └── text/copy.md             ← ALL approved words for all 7 pages
 ```
 
 **Claude Code — known filename fixes to make when building the pipeline (copy, don't touch originals):**
 - `sarfaranga-desert-poster.mp4` is the *video*, misnamed → treat as `sarfaranga-desert.mp4` (its real poster is the .jpg of the same name)
 - `hassnain-broq-staris-2*` → "staris" = "stairs" typo, fix in output names
-- Logo filenames contain spaces + É → copy into `assets/brand/` as `logo-dark.png` (V1), `logo-light.png` (V2), `logo-mark.png` (a square `-01` file) and reference only the clean copies
+- Logo filenames contain spaces → copy into `assets/brand/` from `logo/tours/`: `logo-dark.png` = resized `CYCLING MARKHOR TOURS LOGO.png` lockup; `logo-light.png` = identical pixels recoloured pure white (alpha preserved); `logo-mark.png` + favicon + apple-touch-icon from the square `TOURS LOGO-01.png`. Reference only the clean copies. `logo/V1`, `logo/V2`, `logo/tours/_source-copies-cafe` are archive — never used
 
 ---
 
@@ -60,10 +61,11 @@ cycling-markhor/
 ### Typography (unchanged)
 Fraunces for headlines, Inter for body. Generous whitespace, calm editorial pacing. Style references: dolkharladakh.com, a travel magazine feature about Skardu — never a rental-shop flyer.
 
-### Logo (NEW)
-- Header: `logo-light.png` (white V2) over hero media / dark surfaces; `logo-dark.png` (V1) on light surfaces. Render ~150–180px wide, retina-ready, compressed <40KB each.
-- Favicon + social/OG fallback image: from `logo-mark.png`.
-- The logo says "CYCLING MARKHOR CAFÉ" — that's correct branding, keep as-is.
+### Logo (TOURS — swapped in during the build)
+- Source: `logo/tours/CYCLING MARKHOR TOURS LOGO.png` (lockup) + `...LOGO-01.png` (square mark).
+- Header: `logo-light.png` (the lockup recoloured pure white, alpha preserved) over hero media / dark surfaces; `logo-dark.png` (resized lockup as-is) on light surfaces. Render ~150–180px wide, retina-ready, compressed small (~40–75KB each; smooth alpha costs a little more than the old target).
+- Favicon + social/OG fallback image: from the square `-01` mark (`logo-mark.png`, `favicon.png`, `apple-touch-icon.png`).
+- The logo says "CYCLING MARKHOR TOURS" — that's the site brand now. The CAFÉ artwork (V1/V2) is archive.
 
 ### Asset pipeline (run ONCE, before building pages)
 - Originals in `hero-photos-final/`, `hero-videos-final/`, `logo/` are NEVER modified and are **git-ignored**. Compressed outputs → `assets/img/`, `assets/vid/`, `assets/brand/`.
@@ -75,8 +77,8 @@ Fraunces for headlines, Inter for body. Generous whitespace, calm editorial paci
 ### Shared components
 - **Header:** logo + nav — Home · Our Dream · Our Fleet · Our Team · Precious Humans · Where We Ride · Contact. Transparent over hero media, solid charcoal variant elsewhere. Hamburger under ~52rem.
 - **Footer** (all pages): WhatsApp `https://wa.me/923554437090` · Call `tel:+923554437090` · `info@cyclingmarkhor.tours` · Instagram `https://instagram.com/cyclingmarkhor.tours` · "Skardu, Gilgit-Baltistan, Pakistan" · © Cycling Markhor.
-- **Reel engine** (`js/reel.js`): keep the two-`<video>` crossfade pattern exactly — it's the jitter fix. Generalise it to take any clip list so other pages can use it.
-- **Ambient loop** (NEW): for the four forward+reverse pairs (blind-lake, lake, bridge, broq-timelapse) play forward clip then its reverse — a seamless palindrome background loop. Muted, autoplay-in-viewport, poster-first.
+- **Reel engine** (`js/reel.js`, transition v2): two stacked `<video>` elements; the incoming clip starts ~0.8s BEFORE the current one ends (timeupdate trigger), plays at opacity 0, and only once its frames are confirmed advancing does opacity ramp over ~0.6s ease — while the outgoing clip keeps playing through the whole fade. Never freeze-then-fade; never fade to an unpainted element. If the incoming clip isn't ready at the trigger point, hold the current frame and fade as soon as it is. After handover: pause + recycle the old element, preload the clip after next. `will-change: opacity` + `transform: translateZ(0)` on stacked hero/ambient videos. All compressed clips share one frame rate (29.97 CFR, verified) — mixed fps would make dissolves stutter. Generalised: takes any clip list via `data-clips`.
+- **Ambient loop** (NEW): for the three forward+reverse pairs (blind-lake, lake, bridge) play forward clip then its reverse — a seamless palindrome background loop, using the same early-start dissolve as the reel. Muted, autoplay-in-viewport, poster-first.
 - **Vertical reel strip** (NEW): the 7 vertical clips render inside phone-frame cards, horizontally scrollable on mobile. IntersectionObserver: play muted when visible, pause when not. `preload="none"`, poster-first.
 - **Video card** (NEW): poster + play affordance; tap/hover to play muted inline. Used on Team ("Broko is our hero") and route cards.
 
@@ -97,7 +99,7 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 **Reuse rule:** homepage teaser images MAY repeat on their full page; avoid repeats BETWEEN interior pages.
 
 ### 1. Home — `index.html` (upgrade existing)
-- **Hero reel** (10 clips, this order): `blind-lake` → `nauman-hassnain-ejju-broko-cycling-towards-kachura` → `pov-into-shigar` → `khamosh-waterfall` → `sarfaranga-desert` → `hassnain-crossing-bridge` → `shigar` → `cycling-towards-gulabpur` → `broq-timelapse` → `view-from-broq`. Poster of clip 1 paints first. Headline/CTA overlay per copy.
+- **Hero reel** (10 clips, this order): `blind-lake` → `nauman-hassnain-ejju-broko-cycling-towards-kachura` → `pov-into-shigar` → `khamosh-waterfall` → `sarfaranga-desert` → `hassnain-crossing-bridge` → `shigar` → `cycling-towards-gulabpur` → `riding-towards-kachura` → `view-from-broq`. Poster of clip 1 paints first. Headline/CTA overlay per copy.
 - Status strip (copy unchanged).
 - **The story** + photo `nauman-and-hassnain-4` (founders on the rocks by the river).
 - **The place / seasons** — 4 photos: `nauman-in-shigar`, `surviving-sub-zero` (winter) · `nauman-ejju-and-broko-in-ghundus-valley`, `ejju-nauman-in-shigar` (summer).
@@ -145,12 +147,12 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
   10. Gulabpur — `cycling-towards-gulabpur.mp4`
   11. Winter riding — `pov-frozen-river.mp4`
   12. Sharing the road — `hassnain-pov-crossing-tractor.mp4` + `pov-more-ducks.mp4` (links to Precious Humans)
-- Extra ambient available: `lake-reverse`, `shigar.mp4`, `view-from-broq`/`broq-timelapse-reverse` — use if a section needs breathing room.
+- Extra ambient available: `lake-reverse`, `shigar.mp4`, `view-from-broq` — use if a section needs breathing room.
 
 ### 7. Our Dream — `our-dream.html`
 - Hero: `brangsas-from-dream-to-sand-1` full-bleed (the plan drawn in the sand — the whole page in one image).
 - The land story + `brangsas-from-dream-to-sand-2`.
-- Ambient palindrome band: `broq-timelapse` + `broq-timelapse-reverse`.
+- Ambient band: `view-from-broq` as a simple loop (broq-timelapse dropped — too shaky). If the loop restart looks jarring when built, cut the band and let the photos carry the section.
 - **Winter block:** `surviving-sub-zero` (the campfire) — copy explains why winters shape the build.
 - **"The cafe already travels" block:** `cycling-markhor-cafe-side-logo`, `cycling-markhor-cafe-back-logo` (the Prado wearing the brand).
 - **Timeline:** Now → First cutting → Late 2027 (rows in copy.md).
@@ -158,7 +160,7 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 - CTA: follow @cyclingmarkhor.tours + WhatsApp.
 
 ### Benched (deliberately unused — list them in LATER.md, do not force in)
-`brangsas` extras none · photos: `nauman-and-ejju.jpg`, `ejju-1`, `le-broko`/`le-ejju` duplicates fine, `nauman-with-sarfaranga-in-background`(plain + `-1` if unused), `nauman-and-hassnain-2` (if strip uses 3), `canyon-fleet` spares, `nauman-in-shigar-with-kids` spares, `broko-nauman-and-ejju-climbing-to-shigar`, `ejju-nauman-in-shigar` dupes · clips: `blind-lake-reverse` (used only as palindrome half), `hassnain-broq-stairs-1`, `hassnain-broq-staris-2`, `lake-reverse`, `pov-ducks` spare, `hassnain-and-nauman` if strip crowds. Benched ≠ deleted — they're tomorrow's refresh content.
+`brangsas` extras none · photos: `nauman-and-ejju.jpg`, `ejju-1`, `le-broko`/`le-ejju` duplicates fine, `nauman-with-sarfaranga-in-background`(plain + `-1` if unused), `nauman-and-hassnain-2` (if strip uses 3), `canyon-fleet` spares, `nauman-in-shigar-with-kids` spares, `broko-nauman-and-ejju-climbing-to-shigar`, `ejju-nauman-in-shigar` dupes · clips: `blind-lake-reverse` (used only as palindrome half), `hassnain-broq-stairs-1`, `hassnain-broq-staris-2`, `lake-reverse`, `pov-ducks` spare, `hassnain-and-nauman` if strip crowds, `broq-timelapse` + `broq-timelapse-reverse` (dropped — too shaky; compressed outputs deleted, originals stay). Benched ≠ deleted — they're tomorrow's refresh content.
 
 ---
 
