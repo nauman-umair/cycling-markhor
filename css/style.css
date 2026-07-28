@@ -424,14 +424,6 @@ h1, h2, h3 {
   object-fit: cover;
 }
 
-.page-hero video {
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  will-change: opacity;
-  transform: translateZ(0);
-}
-.page-hero video.is-visible { opacity: 1; }
-
 .page-hero .hero-shade { position: absolute; inset: 0; }
 
 .page-hero-content {
@@ -470,6 +462,10 @@ h1, h2, h3 {
 }
 
 .info-card img { width: 100%; border-radius: 4px; }
+.trio-grid--two .info-card > img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
 .info-card .video-card { margin: 0; }
 .info-card h3 { margin-top: 1rem; font-size: 1.3rem; }
 .info-card .role { color: var(--turquoise); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
@@ -511,6 +507,27 @@ h1, h2, h3 {
 @media (min-width: 44rem) {
   .stable-list { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ---------- Candids strip + tall video cards ---------- */
+
+.candids-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+  margin-top: 2rem;
+}
+.candids-grid img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.candids-grid .video-card { aspect-ratio: 3 / 4; }
+@media (min-width: 48rem) {
+  .candids-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.video-card.video-card--tall { aspect-ratio: 4 / 5; }
 
 /* ---------- Two-up photo row ---------- */
 

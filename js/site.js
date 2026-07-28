@@ -158,14 +158,16 @@
       card.classList.remove('is-playing');
     }
 
-    card.addEventListener('click', function () {
-      if (card.classList.contains('is-playing')) stop();
-      else start();
-    });
-    // Hover-play only on true hover devices, and only if motion is welcome.
+    // On true hover devices the hover owns play/pause (a click would fight
+    // the mouseenter that just started playback); on touch, tap toggles.
     if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
       card.addEventListener('mouseenter', start);
       card.addEventListener('mouseleave', stop);
+    } else {
+      card.addEventListener('click', function () {
+        if (card.classList.contains('is-playing')) stop();
+        else start();
+      });
     }
   });
 })();
