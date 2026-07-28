@@ -1,23 +1,18 @@
 /* Cycling Markhor — hero video reel.
    Two stacked <video> elements take turns: while one plays, the other
    silently loads the next clip; on `ended` we crossfade (~0.5s). Only the
-   current and next clip are ever loaded. */
+   current and next clip are ever loaded.
+   Clip list comes from the reel element's data-clips attribute
+   (comma-separated paths), so any page can run its own reel. */
 
 (function () {
-  var CLIPS = [
-    'assets/videos/hero_01.mp4',
-    'assets/videos/hero_02.mp4',
-    'assets/videos/hero_03.mp4',
-    'assets/videos/hero_04.mp4',
-    'assets/videos/hero_05.mp4',
-    'assets/videos/hero_06.mp4',
-    'assets/videos/hero_07.mp4',
-    'assets/videos/hero_08.mp4',
-    'assets/videos/hero_09.mp4'
-  ];
-
-  var hero = document.querySelector('.hero');
+  var hero = document.querySelector('[data-clips]');
   if (!hero) return;
+
+  var CLIPS = hero.getAttribute('data-clips').split(',').map(function (s) {
+    return s.trim();
+  }).filter(Boolean);
+  if (!CLIPS.length) return;
 
   // Poster-only fallbacks: reduced motion, or data saver.
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -71,7 +66,7 @@
   videos[0].addEventListener('ended', swap);
   videos[1].addEventListener('ended', swap);
 
-  // Kick off: clip 01 in video A. The poster <img> stays visible until the
+  // Kick off: clip 1 in video A. The poster <img> stays visible until the
   // first frames are actually rendering, so first paint is instant.
   videos[0].src = CLIPS[0];
   var started = videos[0].play();

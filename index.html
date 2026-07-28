@@ -5,27 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cycling Markhor — Bike rentals in Skardu, Baltistan</title>
   <meta name="description" content="Ride the roof of the world. Bike rentals, and soon a mountain cafe, in the heart of Skardu, Baltistan.">
+  <meta property="og:title" content="Cycling Markhor — Bike rentals in Skardu, Baltistan">
+  <meta property="og:description" content="Ride the roof of the world. Bike rentals, and soon a mountain cafe, in the heart of Skardu, Baltistan.">
+  <meta property="og:image" content="https://cyclingmarkhor.com/assets/vid/blind-lake-poster.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚵</text></svg>">
+  <link rel="icon" type="image/png" href="assets/brand/favicon.png">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <header class="site-header">
     <div class="wrap">
-      <a class="logo" href="index.html">Cycling Markhor</a>
+      <a class="logo" href="index.html"><img src="assets/brand/logo-light.png" alt="Cycling Markhor" width="320" height="346"></a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="index.html" aria-current="page">Home</a>
+        <a href="our-dream.html">Our Dream</a>
+        <a href="our-fleet.html">Our Fleet</a>
+        <a href="our-team.html">Our Team</a>
+        <a href="our-precious-humans.html">Precious Humans</a>
+        <a href="where-we-ride.html">Where We Ride</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero: 9-clip video reel (js/reel.js). Poster paints first. -->
-  <section class="hero">
-    <img class="hero-poster" src="assets/videos/hero_01_poster.jpg" alt="The turquoise Indus river winding through the mountains of Skardu" fetchpriority="high">
+  <!-- Hero: 10-clip video reel (js/reel.js). Poster of clip 1 paints first. -->
+  <section class="hero" data-clips="assets/vid/blind-lake.mp4,
+    assets/vid/nauman-hassnain-ejju-broko-cycling-towards-kachura.mp4,
+    assets/vid/pov-into-shigar.mp4,
+    assets/vid/khamosh-waterfall.mp4,
+    assets/vid/sarfaranga-desert.mp4,
+    assets/vid/hassnain-crossing-bridge.mp4,
+    assets/vid/shigar.mp4,
+    assets/vid/cycling-towards-gulabpur.mp4,
+    assets/vid/broq-timelapse.mp4,
+    assets/vid/view-from-broq.mp4">
+    <img class="hero-poster" src="assets/vid/blind-lake-poster.jpg" alt="Blind Lake holding the mountains upside down in its turquoise mirror" fetchpriority="high">
     <div class="hero-shade"></div>
     <div class="hero-content">
       <div class="wrap">
@@ -47,8 +66,9 @@
         <h2>The story</h2>
         <p>Cycling Markhor began with two friends and one conviction: that the best way to know Baltistan is from the saddle.</p>
         <p>Our rental fleet is already rolling out of Skardu — and on a piece of land looking out at the mountains, we're building what comes next: a mountain cafe, traditional brangsas, and a villa. A place to ride from, and a place to return to.</p>
+        <p><a href="our-team.html">Meet the team →</a></p>
       </div>
-      <img src="assets/photos/IMG_3581.jpg" alt="A cyclist standing with three local children in front of snow-covered peaks" loading="lazy" width="1280" height="1600">
+      <img src="assets/img/nauman-and-hassnain-4.jpg" alt="The two founders sitting together on the rocks by the river" loading="lazy" width="1280" height="1600">
     </div>
   </section>
 
@@ -58,37 +78,93 @@
       <h2>The place</h2>
       <p class="lede">Skardu doesn't have one face. In winter, the Indus turns a turquoise you won't believe until you've seen it. Spring covers the valley in apricot blossom. Summer brings the green; autumn sets it on fire. The grey giants with their snow peaks watch over all of it. Whichever season you arrive in, it will be a different place — and worth riding through.</p>
       <div class="seasons-grid">
-        <img src="assets/photos/thumbs/IMG_8564.jpg" alt="Three cyclists on a mountain road under a bright blue sky" loading="lazy" width="640" height="800">
-        <img src="assets/photos/thumbs/IMG_7706.jpg" alt="A cyclist riding past snow-dusted peaks" loading="lazy" width="800" height="450">
-        <img src="assets/photos/thumbs/IMG_0048.jpg" alt="Two riders on an empty valley road in winter" loading="lazy" width="640" height="800">
-        <img src="assets/photos/thumbs/IMG_3889.jpg" alt="Village lights at dusk beneath a snow-covered massif" loading="lazy" width="640" height="800">
+        <img src="assets/img/thumbs/nauman-in-shigar.jpg" alt="A rider in Shigar with snow-dusted peaks behind" loading="lazy" width="640" height="800">
+        <img src="assets/img/thumbs/surviving-sub-zero.jpg" alt="Warming up around a campfire on a sub-zero winter evening" loading="lazy" width="640" height="800">
+        <img src="assets/img/thumbs/nauman-ejju-and-broko-in-ghundus-valley.jpg" alt="Three riders in the green summer fields of Ghundus valley" loading="lazy" width="800" height="450">
+        <img src="assets/img/thumbs/ejju-nauman-in-shigar.jpg" alt="Two cyclists riding through summer-green Shigar" loading="lazy" width="640" height="800">
       </div>
     </div>
   </section>
 
-  <section class="section" id="moments">
+  <section class="section" id="explore">
+    <div class="wrap">
+      <span class="kicker">Step inside</span>
+      <h2>The whole story</h2>
+      <div class="explore-grid">
+        <a class="explore-card" href="our-dream.html">
+          <img src="assets/img/thumbs/brangsas-from-dream-to-sand-1.jpg" alt="The plan for the cafe and brangsas drawn into the sand" loading="lazy" width="640" height="800">
+          <div class="explore-card-text">
+            <h3>Our Dream</h3>
+            <p>The cafe, the brangsas, the villa — drawn in the sand, opening late 2027.</p>
+          </div>
+        </a>
+        <a class="explore-card" href="our-fleet.html">
+          <img src="assets/img/thumbs/canyon-fleet-1.jpg" alt="The Canyon fleet lined up together" loading="lazy" width="800" height="450">
+          <div class="explore-card-text">
+            <h3>Our Fleet</h3>
+            <p>Fat bikes to gravel bikes: meet the machines.</p>
+          </div>
+        </a>
+        <a class="explore-card" href="our-team.html">
+          <img src="assets/img/thumbs/le-ejju-and-broko.jpg" alt="Ejju and Broko posing with their bikes" loading="lazy" width="640" height="800">
+          <div class="explore-card-text">
+            <h3>Our Team</h3>
+            <p>Two founders, two friends, four riders.</p>
+          </div>
+        </a>
+        <a class="explore-card" href="our-precious-humans.html">
+          <img src="assets/img/thumbs/nauman-and-kids-2.jpg" alt="A rider surrounded by smiling village kids" loading="lazy" width="640" height="800">
+          <div class="explore-card-text">
+            <h3>Precious Humans</h3>
+            <p>The kids, the cats, the yaks — Baltistan's welcoming committee.</p>
+          </div>
+        </a>
+        <a class="explore-card" href="where-we-ride.html">
+          <img src="assets/img/thumbs/grizl-pov.jpg" alt="Handlebar view of a gravel road heading into the mountains" loading="lazy" width="640" height="800">
+          <div class="explore-card-text">
+            <h3>Where We Ride</h3>
+            <p>Turquoise lakes, cold deserts, wooden bridges: the routes we love.</p>
+          </div>
+        </a>
+        <a class="explore-card explore-card--contact" href="contact.html">
+          <div class="explore-card-text">
+            <h3>Contact</h3>
+            <p>WhatsApp us. We answer fast. →</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--seasons" id="moments">
     <div class="wrap">
       <span class="kicker">From the rides</span>
       <h2>Moments from the saddle</h2>
       <div class="moments-grid">
-        <img src="assets/photos/thumbs/IMG_4186.jpg" alt="Cyclists crossing a wooden suspension bridge over the turquoise river" loading="lazy" width="640" height="800">
-        <img src="assets/photos/thumbs/IMG_8635.jpg" alt="Yaks being herded along the road past waiting cyclists" loading="lazy" width="800" height="450">
-        <img src="assets/photos/thumbs/IMG_3852.jpg" alt="A rider carrying a bike up a snowy slope" loading="lazy" width="640" height="800">
-        <img src="assets/photos/thumbs/IMG_7692.jpg" alt="A cyclist raising a bike overhead in front of the mountains" loading="lazy" width="640" height="800">
-        <img src="assets/photos/thumbs/IMG_3305.jpg" alt="Bikes on a car rack with the Skardu valley behind" loading="lazy" width="800" height="450">
-        <img src="assets/photos/thumbs/IMG_4113.jpg" alt="Two riders on a gravel road beneath a mountain wall" loading="lazy" width="640" height="800">
+        <img src="assets/img/thumbs/nauman-and-ejju-dangerous-river-crossing.jpg" alt="Two riders carrying bikes across a wire bridge over the river" loading="lazy" width="640" height="800">
+        <img src="assets/img/thumbs/yak-attack.jpg" alt="A yak holding its ground on the road as riders wait" loading="lazy" width="800" height="450">
+        <img src="assets/img/thumbs/nauman-with-sarfaranga-in-background-1.jpg" alt="A cyclist above the Sarfaranga cold desert" loading="lazy" width="640" height="800">
+        <img src="assets/img/thumbs/hassnain-loading-bicycle-in-upper-kachura.jpg" alt="Loading a bicycle by the stairs at Upper Kachura" loading="lazy" width="640" height="800">
+        <img src="assets/img/thumbs/ejju-broko-and-nauman-riding-towards-sildi.jpg" alt="Three riders on the road to Sildi" loading="lazy" width="640" height="800">
+        <img src="assets/img/thumbs/night-view-from-broq.jpg" alt="Village lights at night seen from the broq above" loading="lazy" width="640" height="800">
       </div>
     </div>
   </section>
 
   <footer class="site-footer">
     <div class="wrap">
-      <a href="https://wa.me/923554437090">WhatsApp us</a>
+      <div class="footer-links">
+        <a href="https://wa.me/923554437090">WhatsApp us</a>
+        <a href="tel:+923554437090">Call us</a>
+        <a href="mailto:info@cyclingmarkhor.tours">info@cyclingmarkhor.tours</a>
+        <a href="https://instagram.com/cyclingmarkhor.tours">@cyclingmarkhor.tours</a>
+      </div>
       <span>Skardu, Gilgit-Baltistan, Pakistan</span>
       <span>© Cycling Markhor</span>
     </div>
   </footer>
 
   <script src="js/reel.js"></script>
+  <script src="js/site.js"></script>
 </body>
 </html>

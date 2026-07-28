@@ -59,35 +59,88 @@ h1, h2, h3 {
 
 .site-header .wrap {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
 }
 
-.logo {
-  font-family: var(--serif);
-  font-size: 1.35rem;
-  letter-spacing: 0.01em;
-  color: #fff;
+.logo { display: block; flex-shrink: 0; }
+.logo img {
+  width: clamp(120px, 14vw, 155px);
+  height: auto;
+  display: block;
 }
-.logo:hover { color: #fff; }
 
 .site-nav {
   display: flex;
-  gap: 1.5rem;
+  gap: clamp(0.85rem, 1.6vw, 1.4rem);
   flex-shrink: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .site-nav a {
   color: rgba(255, 255, 255, 0.85);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   letter-spacing: 0.02em;
 }
 .site-nav a:hover,
 .site-nav a[aria-current="page"] { color: #fff; }
+.site-nav a[aria-current="page"] { border-bottom: 2px solid var(--turquoise); }
 
-/* Solid header variant (contact page) */
+/* Solid header variant (contact page etc.) */
 .site-header--solid { position: static; background: var(--charcoal); }
+
+/* Hamburger — shown under 52rem, sits above the fullscreen nav panel */
+.nav-toggle {
+  display: none;
+  position: relative;
+  z-index: 30;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.nav-toggle span {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  margin: 5px auto;
+  background: #fff;
+  border-radius: 1px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 52rem) {
+  .nav-toggle { display: block; }
+
+  .site-nav {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.75rem;
+    background: rgba(43, 46, 51, 0.98);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+  .nav-open .site-nav { opacity: 1; visibility: visible; }
+
+  .site-nav a {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  .nav-open { overflow: hidden; }
+}
 
 /* ---------- Hero reel ---------- */
 
@@ -323,17 +376,229 @@ h1, h2, h3 {
 .site-footer .wrap {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.9rem;
   align-items: center;
   text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
 }
 
 .site-footer a { color: var(--turquoise); }
 .site-footer a:hover { color: var(--blossom); }
 
-@media (min-width: 48rem) {
+@media (min-width: 64rem) {
   .site-footer .wrap {
     flex-direction: row;
     justify-content: space-between;
   }
+}
+
+/* ---------- Explore cards (home) ---------- */
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+}
+
+.explore-card {
+  position: relative;
+  display: block;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--charcoal);
+}
+
+.explore-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.explore-card:hover img { transform: scale(1.04); }
+
+.explore-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(20, 22, 26, 0) 35%,
+    rgba(20, 22, 26, 0.72) 100%);
+}
+
+.explore-card-text {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.25rem;
+  color: #fff;
+}
+
+.explore-card h3 {
+  font-size: 1.35rem;
+  color: #fff;
+}
+
+.explore-card p {
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Contact door-card: flat turquoise, no photo */
+.explore-card--contact {
+  background: var(--turquoise);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.explore-card--contact::after { display: none; }
+.explore-card--contact .explore-card-text {
+  position: static;
+  text-align: center;
+  padding: 2rem;
+}
+.explore-card--contact p { font-size: 1.05rem; }
+.explore-card--contact:hover { background: #278b88; }
+
+@media (min-width: 40rem) {
+  .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  .explore-card { aspect-ratio: 4 / 3.2; }
+}
+@media (min-width: 62rem) {
+  .explore-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---------- Ambient palindrome loop ---------- */
+
+.ambient {
+  position: relative;
+  overflow: hidden;
+  background: var(--charcoal);
+  aspect-ratio: 16 / 9;
+}
+
+.ambient .ambient-poster,
+.ambient video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ambient video {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.ambient video.is-visible { opacity: 1; }
+
+/* ---------- Video card (poster + tap/hover to play) ---------- */
+
+.video-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  cursor: pointer;
+  background: var(--charcoal);
+}
+
+.video-card img,
+.video-card video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.video-card { aspect-ratio: 16 / 9; }
+.video-card img { position: absolute; }
+
+.video-card video {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.video-card.is-playing video { opacity: 1; }
+
+.video-card .play-badge {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: rgba(20, 22, 26, 0.55);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.video-card .play-badge::before {
+  content: "";
+  display: block;
+  margin-left: 4px;
+  border-style: solid;
+  border-width: 9px 0 9px 15px;
+  border-color: transparent transparent transparent #fff;
+}
+.video-card.is-playing .play-badge { opacity: 0; }
+
+.video-card figcaption {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: #fff;
+  background: linear-gradient(to bottom, rgba(20,22,26,0), rgba(20,22,26,0.6));
+}
+
+/* ---------- Vertical reel strip (phone-frame cards) ---------- */
+
+.phone-strip {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.25rem 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.phone-card {
+  flex: 0 0 clamp(200px, 58vw, 250px);
+  scroll-snap-align: center;
+  position: relative;
+  aspect-ratio: 9 / 16;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 5px solid var(--charcoal);
+  background: var(--charcoal);
+  box-shadow: 0 10px 30px rgba(43, 46, 51, 0.18);
+}
+
+.phone-card video,
+.phone-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
