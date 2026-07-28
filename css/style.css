@@ -514,12 +514,18 @@ h1, h2, h3 {
   object-fit: cover;
 }
 
+/* Crop anchors — for cover-cropped photos whose subject is off-center.
+   Every use is screenshot-verified (standing rule: no blind cover crops). */
+.pos-bottom { object-position: center bottom !important; }
+.pos-low { object-position: center 75% !important; }
+.pos-high { object-position: center 22% !important; }
+
 /* Bottom-anchored cover crop — for photos whose subject sits low in frame */
 .page-hero-media--bottom { object-position: center bottom; }
 
-/* Our Dream hero: the sand drawings sit in the lower part of the frame —
-   position tuned and screenshot-verified at desktop + phone widths */
-.page-hero-media--sand { object-position: center 85%; }
+/* Heroes whose subject sits in the lower third (sand drawings, the kids'
+   escort) — position tuned and screenshot-verified at desktop + phone widths */
+.page-hero-media--low { object-position: center 85%; }
 
 .page-hero .hero-shade { position: absolute; inset: 0; }
 
