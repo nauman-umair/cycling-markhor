@@ -359,6 +359,43 @@ h1, h2, h3 {
   margin: 1.5rem auto 0;
 }
 
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.btn--ghost {
+  margin-top: 0;
+  background: transparent;
+  border: 1px solid var(--turquoise);
+  color: var(--turquoise);
+  font-weight: 500;
+}
+.btn--ghost:hover {
+  background: var(--turquoise);
+  color: #fff;
+  transform: none;
+}
+
+.contact-strip {
+  max-width: 22rem;
+  margin: 3.5rem auto 0;
+}
+.contact-strip img {
+  width: 100%;
+  border-radius: 4px;
+}
+
 .contact-main .location {
   margin-top: 2.5rem;
   color: var(--stone);
