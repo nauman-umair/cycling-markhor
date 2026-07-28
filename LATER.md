@@ -14,7 +14,7 @@ Ideas and content deliberately parked. Nothing here blocks launch.
 
 ## Benched footage (unused on purpose — tomorrow's refresh content)
 Photos:
-- `nauman-and-ejju.jpg` · `ejju-1`
+- `nauman-and-ejju.jpg` · `ejju-1` · `ejju-nauman-in-shigar` (off the Home collage)
 - `broko-nauman-and-ejju-climbing-to-shigar` · `nauman-ejju-and-broko-1`
 - `broko-ejju-prado-and-nauman` · `nauman-ejju-and-broko-in-ghundus-valley`
   (off Home — still on Where We Ride)

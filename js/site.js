@@ -151,12 +151,27 @@
     // Reduced motion / data saver: the first image stays, static.
     if (slides.length < 2 || reduceMotion || saveData) return;
 
-    var imgs = [host.querySelector('img.slide'), document.createElement('img')];
-    if (!imgs[0]) return;
-    imgs[1].className = 'slide';
-    imgs[1].alt = '';
-    imgs[1].setAttribute('aria-hidden', 'true');
-    host.appendChild(imgs[1]);
+    // Each layer: <div class="slide"><img class="slide-bg"><img class="slide-fg">
+    // — blurred cover copy underneath, full photo contained on top.
+    function makeLayer() {
+      var d = document.createElement('div');
+      d.className = 'slide';
+      d.setAttribute('aria-hidden', 'true');
+      var bg = document.createElement('img');
+      bg.className = 'slide-bg';
+      bg.alt = '';
+      var fg = document.createElement('img');
+      fg.className = 'slide-fg';
+      fg.alt = '';
+      d.appendChild(bg);
+      d.appendChild(fg);
+      return d;
+    }
+    var layers = [host.querySelector('.slide'), makeLayer()];
+    if (!layers[0]) return;
+    host.appendChild(layers[1]);
+    function fgOf(l) { return l.querySelector('.slide-fg'); }
+    function bgOf(l) { return l.querySelector('.slide-bg'); }
 
     var dotsWrap = document.createElement('div');
     dotsWrap.className = 'slide-dots';
@@ -172,29 +187,30 @@
     host.appendChild(dotsWrap);
 
     var idx = 0;         // slide index currently shown
-    var active = 0;      // which img element is on top
+    var active = 0;      // which layer is on top
     var inView = true;
     var switching = false;
 
-    function kenBurns(el, i) {
-      el.classList.remove('kb-a', 'kb-b');
-      void el.offsetWidth;               // restart the animation
-      el.classList.add(i % 2 ? 'kb-b' : 'kb-a');
+    function kenBurns(layer, i) {
+      layer.classList.remove('kb-a', 'kb-b');
+      void layer.offsetWidth;            // restart the animation
+      layer.classList.add(i % 2 ? 'kb-b' : 'kb-a');
     }
 
     function show(i) {
       if (switching || i === idx) return;
       switching = true;
-      var cur = imgs[active];
-      var nxt = imgs[1 - active];
+      var cur = layers[active];
+      var nxt = layers[1 - active];
+      var fg = fgOf(nxt);
 
       var go = function () {
         kenBurns(nxt, i);
-        nxt.alt = alts[i] || '';
+        fg.alt = alts[i] || '';
         nxt.removeAttribute('aria-hidden');
         nxt.classList.add('is-visible');
         cur.classList.remove('is-visible');
-        cur.alt = '';
+        fgOf(cur).alt = '';
         cur.setAttribute('aria-hidden', 'true');
         dots[idx].classList.remove('is-active');
         dots[i].classList.add('is-active');
@@ -204,9 +220,10 @@
         var pre = new Image();               // warm the cache for the next one
         pre.src = slides[(i + 1) % slides.length];
       };
-      nxt.onload = function () { nxt.onload = null; go(); };
-      nxt.src = slides[i];
-      if (nxt.complete && nxt.naturalWidth) { nxt.onload = null; go(); }
+      bgOf(nxt).src = slides[i];
+      fg.onload = function () { fg.onload = null; go(); };
+      fg.src = slides[i];
+      if (fg.complete && fg.naturalWidth) { fg.onload = null; go(); }
     }
 
     function goTo(i) { show((i + slides.length) % slides.length); restart(); }
@@ -241,8 +258,9 @@
     }
 
     // First image drifts too, and the next one warms the cache.
-    kenBurns(imgs[0], 0);
-    imgs[1].src = slides[1];
+    kenBurns(layers[0], 0);
+    var warm = new Image();
+    warm.src = slides[1];
   });
 
   /* ---- Video cards: poster + play affordance; tap (or hover, on mouse

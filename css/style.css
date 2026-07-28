@@ -301,26 +301,30 @@ h1, h2, h3 {
   max-width: 42rem;
 }
 
-/* The place: calm masonry collage — native aspect ratios, no crops */
+/* The place: even 3-column collage — one 4:5 vertical + one 16:9
+   horizontal per column, so with equal gaps all columns end dead level */
 
 .collage {
-  columns: 1;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 0.9rem;
   margin-top: 2.75rem;
+}
+.collage-col {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
 }
 .collage img {
   display: block;
   width: 100%;
-  height: auto;
-  margin-bottom: 0.9rem;
+  object-fit: cover;
   border-radius: 4px;
-  break-inside: avoid;
 }
-@media (min-width: 40rem) {
-  .collage { columns: 2; }
-}
+.collage img.tall { aspect-ratio: 4 / 5; }
+.collage img.wide { aspect-ratio: 16 / 9; }
 @media (min-width: 62rem) {
-  .collage { columns: 3; }
+  .collage { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* Moments: full-width Ken Burns slideshow */
@@ -328,35 +332,55 @@ h1, h2, h3 {
 .slideshow {
   position: relative;
   overflow: hidden;
-  height: clamp(22rem, 70vh, 40rem);
+  height: 60vh;
   background: var(--charcoal);
   margin-top: 2.75rem;
 }
+@media (min-width: 48rem) {
+  .slideshow { height: 75vh; }
+}
 
+/* Each slide is two layers: a blurred, darkened cover copy filling the
+   stage + the full photo contained on top, so nothing is ever cropped out. */
 .slideshow .slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  will-change: opacity;
+}
+.slideshow .slide.is-visible { opacity: 1; }
+
+.slide-bg,
+.slide-fg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-  will-change: opacity, transform;
 }
-.slideshow .slide.is-visible { opacity: 1; }
+.slide-bg {
+  object-fit: cover;
+  filter: blur(22px) brightness(0.5);
+  transform: scale(1.12);   /* hide the blur's soft edges */
+}
+.slide-fg {
+  object-fit: contain;
+  will-change: transform;
+}
 
 @keyframes kb-a {
-  from { transform: scale(1.02) translate(0, 0); }
-  to   { transform: scale(1.1) translate(-1.5%, 1%); }
+  from { transform: scale(1); }
+  to   { transform: scale(1.045) translate(-0.6%, 0.4%); }
 }
 @keyframes kb-b {
-  from { transform: scale(1.1) translate(1.5%, -1%); }
-  to   { transform: scale(1.02) translate(0, 0); }
+  from { transform: scale(1.045) translate(0.6%, -0.4%); }
+  to   { transform: scale(1); }
 }
-.slideshow .slide.kb-a { animation: kb-a 6s linear forwards; }
-.slideshow .slide.kb-b { animation: kb-b 6s linear forwards; }
+.slideshow .slide.kb-a .slide-fg { animation: kb-a 6s linear forwards; }
+.slideshow .slide.kb-b .slide-fg { animation: kb-b 6s linear forwards; }
 
 @media (prefers-reduced-motion: reduce) {
+  .slideshow .slide-fg,
   .slideshow .slide { animation: none !important; transition: none; }
 }
 
