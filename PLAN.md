@@ -116,7 +116,7 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 - **"The Canyon fleet"** section header above the lead trio: `canyon-grizl` (Grizl — light sage green, frame bag) · `canyon-grail` (Grail — dark green) · `grand-canyon` (Grand Canyon — red). Colours baked into alt text, verified against the photos.
 - **Fleet SLIDESHOW** (contain-on-blur, same component as Home's Moments): `canyon-fleet-1`, `-2`, `-3`, `-5`, `canyon-fleet-inside-broq-1..3`, `canyon-grizl-inside-broq`, `grizl-and-grail`, `grizl-pov`. (`bikes-inside-mountains-inside` lives on Home's collage; `cycling-markhor` on Our Dream.)
 - **The whole stable** — text list from copy.md: the three Canyons named + Trek Farley fat bike, Trek 29er, BMC Sportelite 27.5, Merida Scultura, Giant 26", Giant hybrid, GT hybrid, Precision hybrid, Anchor hybrid. No prices, no sizes — deliberate.
-- **Support vehicle block:** copy trimmed (school-bus line gone) + compact slideshow of `prado-with-bikes-but-without-logos`, `prado-with-river-and-mountains-in-the-background-1`, `-2`.
+- **Support vehicle block:** copy trimmed (school-bus line gone) + compact slideshow of seven: `prado-with-bikes-but-without-logos`, `prado-with-river-and-mountains-in-the-background-1`, `-2`, `cycling-markhor-cafe-back-logo`, `cycling-markhor-cafe-side-logo`, `hassnain-loading-bicycle-in-upper-kachura`, `prado-and-kids`.
 - CTA: WhatsApp availability check.
 
 ### 4. Our Team — `our-team.html`
@@ -155,7 +155,7 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 - (Ambient band cut — view-from-broq loop restart was jarring; photos carry the page.)
 - **Winter block:** `hassnain-arsalan-and-broko` — copy explains why winters shape the build. (`surviving-sub-zero` benched.)
 - **"The cafe already travels" block:** `cycling-markhor` (the misty roof-rack shot — lives only on this page) at natural aspect. Copy trimmed: children line gone.
-- **Timeline:** Now → First cutting → Late 2027 (rows in copy.md) + photo `broko-ejju-prado-and-nauman` at natural aspect — riders and Prado fully in frame. (`prado-with-river-and-mountains-in-the-background-2`, `cycling-markhor-cafe-side-logo`, `-back-logo` benched.)
+- **Timeline:** Now → First cutting → Late 2027 (rows in copy.md) + photo `broko-ejju-prado-and-nauman` at natural aspect — riders and Prado fully in frame. (The prado-2 and cafe-logo shots now live in Our Fleet's Prado slideshow.)
 - **Standing rule (whole site):** portrait photos in wide containers get natural aspect ratio, contain-on-blur, or a visually verified `object-position` — never a blind cover crop. Verify crops with Chrome screenshots at desktop AND phone widths before calling a section done.
 - CTA: follow @cyclingmarkhor.tours + WhatsApp.
 

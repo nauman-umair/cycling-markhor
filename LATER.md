@@ -18,7 +18,6 @@ Photos:
 - `broko-nauman-and-ejju-climbing-to-shigar` · `nauman-ejju-and-broko-1`
 - `nauman-ejju-and-broko-in-ghundus-valley` (off Home — still on Where We Ride)
 - `surviving-sub-zero` (off Home and Our Dream)
-- `cycling-markhor-cafe-side-logo` · `cycling-markhor-cafe-back-logo`
 - `grizl-and-grail` spares from the fleet shoot
 
 Clips:
