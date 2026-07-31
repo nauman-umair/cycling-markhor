@@ -99,7 +99,7 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 **Reuse rule:** homepage teaser images MAY repeat on their full page; avoid repeats BETWEEN interior pages.
 
 ### 1. Home — `index.html` (upgrade existing)
-- **Hero reel** (10 clips, this order): `blind-lake` → `nauman-hassnain-ejju-broko-cycling-towards-kachura` → `pov-into-shigar` → `khamosh-waterfall` → `sarfaranga-desert` → `hassnain-crossing-bridge` → `shigar` → `cycling-towards-gulabpur` → `riding-towards-kachura` → `view-from-broq`. Poster of clip 1 paints first. Headline/CTA overlay per copy.
+- **Hero reel** (10 clips, this order): `blind-lake` → `broko-and-chocolate-rocks` → `pov-into-shigar` → `khamosh-waterfall` → `sarfaranga-desert` → `hassnain-crossing-bridge` → `shigar` → `cycling-towards-gulabpur` → `riding-towards-kachura` → `view-from-broq`. Poster of clip 1 paints first. Headline/CTA overlay per copy. (`nauman-hassnain-ejju-broko-cycling-towards-kachura` swapped out — it lives only as Our Team's hero now.)
 - Status strip (copy unchanged).
 - **The story** + photo `nauman-and-hassnain-4` (founders on the rocks by the river).
 - **The place** — 6-photo COLLAGE: exact 3-column grid, two photos per column, alternating orientation (verticals 4:5, horizontals 16:9) so all columns end dead level. Col 1: `nauman-in-shigar` (V) + `nauman-with-sarfaranga-in-background` (H). Col 2: `nauman-and-ejju-climbing-to-shigar` (H) + `night-view-from-broq` (V). Col 3: `nauman-broko-and-ejju-2` (V) + `bikes-inside-mountains-inside` (H). Mobile: same order, single column. (`ejju-nauman-in-shigar`, `nauman-ejju-and-broko-in-ghundus-valley`, `surviving-sub-zero` off Home — the latter two remain on Where We Ride / Our Dream.)
@@ -120,11 +120,11 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 - CTA: WhatsApp availability check.
 
 ### 4. Our Team — `our-team.html`
-- Hero: ambient video `nauman-hassnain-ejju-broko-cycling-towards-kachura` (all four riding), poster fallback.
+- Hero: ambient video `nauman-hassnain-ejju-broko-cycling-towards-kachura` (all four riding), poster fallback — this clip lives ONLY here (swapped out of the Home reel).
 - **Founder cards:** Numaan Kashmiri — `nauman.jpg` · Hassnain "Hassu" Balti — poster of `hassnain-going-down-stairs-to-upper-kachura-lake` (vertical action frame).
-- **Rider cards:** Ejju (Ejaz) — `le-ejju` · Broko (Ghulam) — `le-broko`, and tapping Broko's card plays `broko-is-our-hero.mp4` inline (the easter egg the filename deserves).
+- **Rider cards:** Ejju (Ejaz) — mini auto-playing card SLIDESHOW (`ejju-1`, `ejju-2`, `ejju-headed-to-masrur-rock`, `ejju-in-prostration-2`; all native 4:5, simple in-card crossfade every ~3.5s, plays only in viewport, reduced-motion shows `ejju-1` static) · Broko (Ghulam) — `le-broko`, and tapping Broko's card plays `broko-is-our-hero.mp4` inline (the easter egg the filename deserves). The two cards are counterparts: Ejju's slideshow, Broko's video.
 - **Founders' candids strip:** `nauman-and-hassnain-1`, `-2`, `-3` + short clip `hassnain-and-nauman.mp4`.
-- **"Better together" mosaic** (curate ~6 from): `nauman-broko-and-ejju-1/2`, `nauman-ejju-and-broko-1/2`, `broko.jpg`, `broko-in-ghundus`, `ejju-2`, `nauman-in-ghundus`, vertical clip `ejju-nauman-broko.mp4`, clips `nauman-hassnain-riding-together-1/2`, `broko-and-chocolate-rocks`.
+- **"Better together" mosaic** — PHOTO-ONLY, 10 tiles, even grid, every tile at native aspect (portraits 4:5 = zero crop). Row 1: `nauman-with-sarfaranga-in-background-1` · `nauman-broko-and-ejju-2` (centre) · `broko`. Rows 2–3: `broko-nauman-and-ejju-climbing-to-shigar`, `ejju-nauman-in-shigar`, `nauman-and-ejju-dangerous-river-crossing`, `nauman-and-ejju-gravel-ride-to-blind-lake`, `nauman-and-ejju`, `nauman-ejju-and-broko-2`. Closing row: `nauman-ejju-and-broko-in-ghundus-valley` full-width at its native 16:9 (the one landscape — full-width keeps the grid even and uncropped). Two-column band: first tile leads full-width so pairs stay even. Cross-page repeats here (river crossing, blind-lake gravel, ghundus, masrur, prostration) are deliberate — Nauman's picks.
 
 ### 5. Precious Humans — `our-precious-humans.html`
 - Hero: `nauman-and-kids-1` (the escort up the village path).
@@ -160,7 +160,7 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 - CTA: follow @cyclingmarkhor.tours + WhatsApp.
 
 ### Benched (deliberately unused — list them in LATER.md, do not force in)
-`brangsas` extras none · photos: `nauman-and-ejju.jpg`, `ejju-1`, `le-broko`/`le-ejju` duplicates fine, `nauman-and-hassnain-2` (if strip uses 3), `canyon-fleet` spares, `nauman-in-shigar-with-kids` spares, `broko-nauman-and-ejju-climbing-to-shigar`, `ejju-nauman-in-shigar` dupes · clips: `blind-lake-reverse` (used only as palindrome half), `hassnain-broq-stairs-1`, `hassnain-broq-staris-2`, `lake-reverse`, `pov-ducks` spare, `hassnain-and-nauman` if strip crowds, `broq-timelapse` + `broq-timelapse-reverse` (dropped — too shaky; compressed outputs deleted, originals stay). Benched ≠ deleted — they're tomorrow's refresh content.
+`brangsas` extras none · photos: `le-ejju` (off the Ejju card — it's a slideshow now), `nauman-broko-and-ejju-1`, `nauman-ejju-and-broko-1`, `nauman-in-ghundus` (off the Team mosaic), `nauman-and-hassnain-2` (if strip uses 3), `canyon-fleet` spares, `nauman-in-shigar-with-kids` spares · clips: `blind-lake-reverse` (used only as palindrome half), `hassnain-broq-stairs-1`, `hassnain-broq-staris-2`, `lake-reverse`, `pov-ducks` spare, `hassnain-and-nauman` if strip crowds, `broq-timelapse` + `broq-timelapse-reverse` (dropped — too shaky; compressed outputs deleted, originals stay). Benched ≠ deleted — they're tomorrow's refresh content.
 
 ---
 

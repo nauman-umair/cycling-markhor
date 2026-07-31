@@ -263,6 +263,66 @@
     warm.src = slides[1];
   });
 
+  /* ---- Card slideshows: a mini crossfade inside an info card. Advances
+     every ~3.5s while in the viewport; the current and next image are the
+     only ones ever loaded. Reduced motion / data saver / no JS: the first
+     image stays, static. Markup:
+     <div class="card-slideshow" data-slides="a.jpg,b.jpg" data-alts="a|b">
+       <img class="is-visible" src="a.jpg" alt="a"> </div> */
+  document.querySelectorAll('.card-slideshow[data-slides]').forEach(function (host) {
+    var slides = host.getAttribute('data-slides').split(',').map(function (s) {
+      return s.trim();
+    }).filter(Boolean);
+    var alts = (host.getAttribute('data-alts') || '').split('|');
+    if (slides.length < 2 || reduceMotion || saveData) return;
+
+    var imgs = [host.querySelector('img'), document.createElement('img')];
+    if (!imgs[0]) return;
+    imgs[1].alt = '';
+    host.appendChild(imgs[1]);
+
+    var idx = 0;
+    var active = 0;
+    var inView = false;
+    var warmed = false;
+
+    function show(i) {
+      var nxt = imgs[1 - active];
+      var go = function () {
+        nxt.alt = alts[i] || '';
+        nxt.classList.add('is-visible');
+        imgs[active].classList.remove('is-visible');
+        imgs[active].alt = '';
+        active = 1 - active;
+        idx = i;
+        var pre = new Image();             // warm the cache for the next one
+        pre.src = slides[(i + 1) % slides.length];
+      };
+      nxt.onload = function () { nxt.onload = null; go(); };
+      nxt.src = slides[i];
+      if (nxt.complete && nxt.naturalWidth) { nxt.onload = null; go(); }
+    }
+
+    window.setInterval(function () {
+      if (inView && !document.hidden) show((idx + 1) % slides.length);
+    }, 3500);
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          inView = e.isIntersecting;
+          if (inView && !warmed) {
+            warmed = true;
+            var warm = new Image();
+            warm.src = slides[1];
+          }
+        });
+      }, { threshold: 0.25 }).observe(host);
+    } else {
+      inView = true;
+    }
+  });
+
   /* ---- Video cards: poster + play affordance; tap (or hover, on mouse
      devices) plays muted inline. Markup:
      <figure class="video-card" data-video="x.mp4"> <img> ... </figure> */

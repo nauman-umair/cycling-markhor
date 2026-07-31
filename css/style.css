@@ -444,6 +444,19 @@ h1, h2, h3 {
   .moments-grid img { aspect-ratio: 4 / 3; }
 }
 
+/* Photo-only mosaic variant (Team): every tile at its native aspect —
+   portraits are 4:5, the one landscape closes the grid full-width at 16:9.
+   In the two-column band the first portrait leads full-width so the nine
+   portraits still pack into even rows. */
+.moments-grid.moments-grid--natural img { aspect-ratio: 4 / 5; }
+.moments-grid.moments-grid--natural img.mosaic-wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 9;
+}
+@media (min-width: 26rem) and (max-width: 47.99rem) {
+  .moments-grid--natural img:first-child { grid-column: 1 / -1; }
+}
+
 /* ---------- Contact page ---------- */
 
 .contact-main {
@@ -593,6 +606,25 @@ h1, h2, h3 {
   object-fit: cover;
 }
 .info-card .video-card { margin: 0; }
+
+/* Card slideshow: a mini in-card crossfade (Ejju's counterpart to Broko's
+   tap-to-play). All slides are native 4:5 portraits — no crop. */
+.card-slideshow {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.card-slideshow img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.card-slideshow img.is-visible { opacity: 1; }
 .info-card h3 { margin-top: 1rem; font-size: 1.3rem; }
 .info-card .role { color: var(--turquoise); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
 .info-card p { margin-top: 0.5rem; font-size: 0.975rem; line-height: 1.65; }

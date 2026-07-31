@@ -14,11 +14,15 @@ Ideas and content deliberately parked. Nothing here blocks launch.
 
 ## Benched footage (unused on purpose — tomorrow's refresh content)
 Photos:
-- `nauman-and-ejju.jpg` · `ejju-1` · `ejju-nauman-in-shigar` (off the Home collage)
-- `broko-nauman-and-ejju-climbing-to-shigar` · `nauman-ejju-and-broko-1`
-- `nauman-ejju-and-broko-in-ghundus-valley` (off Home — still on Where We Ride)
+- `le-ejju` (off the Ejju rider card — the card is a mini slideshow now)
+- `nauman-broko-and-ejju-1` · `nauman-in-ghundus` (off the Team mosaic)
+- `nauman-ejju-and-broko-1`
 - `surviving-sub-zero` (off Home and Our Dream)
 - `grizl-and-grail` spares from the fleet shoot
+
+(Un-benched in the Team review: `nauman-and-ejju`, `ejju-1`, `ejju-nauman-in-shigar`,
+`broko-nauman-and-ejju-climbing-to-shigar` — all now in the Team "Better together"
+mosaic or the Ejju card slideshow.)
 
 Clips:
 - `broq-timelapse` + `broq-timelapse-reverse` — dropped mid-build (too shaky);
