@@ -1180,6 +1180,7 @@ figcaption.caption {
   border-radius: 4px;
   background: var(--charcoal);
 }
+.clip-grid .ambient { border-radius: 4px; }
 
 /* ---------- Vertical reel strip (phone-frame cards) ---------- */
 
