@@ -152,14 +152,19 @@
     // Reduced motion / data saver: the first image stays, static.
     if (slides.length < 2 || reduceMotion || saveData) return;
 
-    // Optional per-slide captions, shown in a line under the stage.
-    var capEl = null;
-    if (caps.some(function (c) { return c.trim(); })) {
+    // Optional per-slide captions, shown in a line under the stage. A static
+    // .slide-caption in the markup (for no-JS / reduced motion) is reused.
+    var capEl = host.nextElementSibling && host.nextElementSibling.classList &&
+      host.nextElementSibling.classList.contains('slide-caption')
+      ? host.nextElementSibling : null;
+    if (!capEl && caps.some(function (c) { return c.trim(); })) {
       capEl = document.createElement('p');
       capEl.className = 'slide-caption';
+      host.parentNode.insertBefore(capEl, host.nextSibling);
+    }
+    if (capEl) {
       capEl.setAttribute('aria-live', 'polite');
       capEl.textContent = caps[0] || '';
-      host.parentNode.insertBefore(capEl, host.nextSibling);
     }
 
     // Each layer: <div class="slide"><img class="slide-bg"><img class="slide-fg">
