@@ -1162,6 +1162,25 @@ figcaption.caption {
   background: linear-gradient(to bottom, rgba(20,22,26,0), rgba(20,22,26,0.6));
 }
 
+/* ---------- Valley pages (rides/): rows of wide clips ---------- */
+
+.clip-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  margin-top: 1.75rem;
+}
+@media (min-width: 44rem) {
+  .clip-grid { grid-template-columns: repeat(var(--cols, 3), 1fr); }
+}
+.clip-grid video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--charcoal);
+}
+
 /* ---------- Vertical reel strip (phone-frame cards) ---------- */
 
 .phone-strip {
