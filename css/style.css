@@ -420,6 +420,18 @@ h1, h2, h3 {
   .slideshow--compact { height: 55vh; }
 }
 
+/* Optional slideshow caption line (kids slideshow) — fixed height so the
+   stage doesn't jump when a slide has no caption */
+.slide-caption {
+  margin: 0.75rem auto 0;
+  max-width: 44rem;
+  min-height: 1.3em;
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--stone);
+}
+
 /* Moments */
 
 .moments-grid {
@@ -778,6 +790,35 @@ figcaption.caption {
 .media-wide-center {
   max-width: 44rem;
   margin: 2.5rem auto 0;
+}
+.media-wide-center img { width: 100%; border-radius: 4px; }
+
+/* And-friends collage: two phone-frames flanking a middle column of two
+   stacked wide clips — 13:20:13 column ratio makes the 16:9 pair (plus gap)
+   land level with the 9:16 phone frames. Wides cover-crop by a hair. */
+.friends-collage {
+  display: grid;
+  grid-template-columns: 13fr 20fr 13fr;
+  gap: 0.9rem;
+  margin-top: 2.5rem;
+}
+.friends-collage .phone-card { width: 100%; }
+.friends-wides {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.9rem;
+}
+.friends-wides video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--charcoal);
+}
+@media (max-width: 44rem) {
+  .friends-collage { grid-template-columns: 1fr 1fr; }
+  .friends-wides { grid-column: 1 / -1; grid-template-rows: none; order: 1; }
+  .friends-wides video { height: auto; aspect-ratio: 16 / 9; }
 }
 
 .section--stillness {

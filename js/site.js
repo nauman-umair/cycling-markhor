@@ -147,9 +147,20 @@
       return s.trim();
     }).filter(Boolean);
     var alts = (host.getAttribute('data-alts') || '').split('|');
+    var caps = (host.getAttribute('data-captions') || '').split('|');
 
     // Reduced motion / data saver: the first image stays, static.
     if (slides.length < 2 || reduceMotion || saveData) return;
+
+    // Optional per-slide captions, shown in a line under the stage.
+    var capEl = null;
+    if (caps.some(function (c) { return c.trim(); })) {
+      capEl = document.createElement('p');
+      capEl.className = 'slide-caption';
+      capEl.setAttribute('aria-live', 'polite');
+      capEl.textContent = caps[0] || '';
+      host.parentNode.insertBefore(capEl, host.nextSibling);
+    }
 
     // Each layer: <div class="slide"><img class="slide-bg"><img class="slide-fg">
     // — blurred cover copy underneath, full photo contained on top.
@@ -214,6 +225,7 @@
         cur.setAttribute('aria-hidden', 'true');
         dots[idx].classList.remove('is-active');
         dots[i].classList.add('is-active');
+        if (capEl) capEl.textContent = caps[i] || '';
         active = 1 - active;
         idx = i;
         switching = false;

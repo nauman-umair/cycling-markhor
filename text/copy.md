@@ -123,8 +123,12 @@ Support vehicle and bike carrier. Where the fleet goes, it goes.
 
 ### The kids
 **Heading:** The welcoming committee
-Ride through Shigar and you arrive alone but leave with an escort. The kids of these villages are our loudest cheering section, our most honest critics, and — whenever the Prado is parked — our keenest passengers.
+Ride through Shigar and Kharmang and you arrive alone but leave with an escort. The kids of these villages are our loudest cheering section, our most honest critics, and — whenever the Prado is parked — our keenest passengers.
 **Captions:** That's M Hassan, streamside with Ejju. · And Arsalan, who sat with us on a frozen slope like it was summer.
+
+### The one who started it all
+**Heading:** The one who started it all
+Before the fleet, the plan or even the name, there was Ather Sildi — the friend who introduced Numaan to Hassnain. No Ather, no Cycling Markhor. It's that simple.
 
 ### And friends
 **Heading:** And friends

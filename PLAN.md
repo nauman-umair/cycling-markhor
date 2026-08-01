@@ -70,6 +70,7 @@ Fraunces for headlines, Inter for body. Generous whitespace, calm editorial paci
 ### Asset pipeline (run ONCE, before building pages)
 - Originals in `hero-photos-final/`, `hero-videos-final/`, `logo/` are NEVER modified and are **git-ignored**. Compressed outputs → `assets/img/`, `assets/vid/`, `assets/brand/`.
 - Photos: max 1600px long edge, quality → **≤250KB**; grid thumbnails 800px → ≤120KB.
+- **Hero tier:** every image used as a page hero also gets `-1280` and `-2560` long-edge versions (2560 quality-tuned, roughly ≤600KB), served via `srcset` 1280/1600/2560 with `sizes="100vw"` — phones stay light, full-viewport desktop heroes stay sharp. Currently: `nauman-and-kids-1`, `brangsas-from-dream-to-sand-1`, `canyon-fleet-4`.
 - Videos: H.264, **strip audio**, keep native resolution (1920×1080 / 1080×1920), CRF ~28, `-movflags +faststart`, target **≤2MB per clip** (raise CRF per stubborn clip).
 - Posters: ≤150KB.
 - Delete the old `assets/photos/` + `assets/videos/` (v3 media) once the new pipeline output is confirmed.
@@ -127,10 +128,11 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 - **"Better together" mosaic** — PHOTO-ONLY, 10 tiles, even grid, every tile at native aspect (portraits 4:5 = zero crop). Row 1: `nauman-with-sarfaranga-in-background-1` · `nauman-broko-and-ejju-2` (centre) · `broko`. Rows 2–3: `broko-nauman-and-ejju-climbing-to-shigar`, `ejju-nauman-in-shigar`, `nauman-and-ejju-dangerous-river-crossing`, `nauman-and-ejju-gravel-ride-to-blind-lake`, `nauman-and-ejju`, `nauman-ejju-and-broko-2`. Closing row: `nauman-ejju-and-broko-in-ghundus-valley` full-width at its native 16:9 (the one landscape — full-width keeps the grid even and uncropped). Two-column band: first tile leads full-width so pairs stay even. Cross-page repeats here (river crossing, blind-lake gravel, ghundus, masrur, prostration) are deliberate — Nauman's picks.
 
 ### 5. Precious Humans — `our-precious-humans.html`
-- Hero: `nauman-and-kids-1` (the escort up the village path).
-- **Kids block:** `nauman-in-shigar-with-kids`, `nauman-and-kids-2`, `prado-and-kids`, `ejju-and-m-hassan` (caption names M Hassan), `hassnain-arsalan-and-broko` (caption names Arsalan).
-- **"And friends" block:** vertical reel strip — `cat-near-khamosh-waterfall`, `petting-cat-near-khamosh-waterfall`, `ejju-and-nauman-petting-cat-near-khamosh-waterfall`, `yaks-in-shigar` · horizontal clips `pov-sheep`, `pov-ducks` · photo `yak-attack`.
-- **"Moments of stillness" block** (quiet, respectful, generous whitespace): `ejju-in-prostration-2` large, `ejju-praying-1`, `ejju-in-prostration-1` · `labayak-ya-hussain.mp4` as tap-to-play (NOT autoplay). Copy exactly as written — no additions.
+- Hero: `nauman-and-kids-1` (the escort up the village path) — hero srcset tier (1280/1600/2560).
+- **Kids block:** contain-on-blur SLIDESHOW (compact), 6 slides in order: `nauman-in-shigar-with-kids`, `nauman-and-kids-2`, `prado-and-kids`, `ejju-and-m-hassan` (caption names M Hassan), `hassnain-arsalan-and-broko` (caption names Arsalan), `grail-in-sildi-with-dog-and-puppy` (new photo). Captions ride under the stage, attached to their slides. Lede opens "Ride through Shigar and Kharmang…".
+- **"The one who started it all" block** (between kids and friends): `nauman-and-ather` (new photo) at natural aspect — the copy honours Ather Sildi, who introduced Numaan to Hassnain.
+- **"And friends" block:** exactly FOUR clips in a mixed collage — phone-frames `petting-cat-near-khamosh-waterfall` + `yaks-in-shigar` flanking two stacked wides `pov-ducks` + `pov-sheep`, even grid. Photo `yak-attack` below. (`cat-near-khamosh-waterfall` + `ejju-and-nauman-petting-cat-near-khamosh-waterfall` benched.)
+- **"Moments of stillness" block** (quiet, respectful, generous whitespace): heading + paragraph + ONE photo — `ejju-praying-1` at natural aspect. (`ejju-in-prostration-1` + `labayak-ya-hussain` benched; `ejju-in-prostration-2` lives in Ejju's Team slideshow.) Copy exactly as written — no additions.
 
 ### 6. Where We Ride — `where-we-ride.html`
 - Hero: ambient palindrome `blind-lake` + `blind-lake-reverse` (the turquoise mirror), title overlay.
@@ -160,7 +162,7 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 - CTA: follow @cyclingmarkhor.tours + WhatsApp.
 
 ### Benched (deliberately unused — list them in LATER.md, do not force in)
-`brangsas` extras none · photos: `le-ejju` (off the Ejju card — it's a slideshow now), `nauman-broko-and-ejju-1`, `nauman-ejju-and-broko-1`, `nauman-in-ghundus` (off the Team mosaic), `nauman-and-hassnain-2` (if strip uses 3), `canyon-fleet` spares, `nauman-in-shigar-with-kids` spares · clips: `blind-lake-reverse` (used only as palindrome half), `hassnain-broq-stairs-1`, `hassnain-broq-staris-2`, `lake-reverse`, `pov-ducks` spare, `hassnain-and-nauman` if strip crowds, `broq-timelapse` + `broq-timelapse-reverse` (dropped — too shaky; compressed outputs deleted, originals stay). Benched ≠ deleted — they're tomorrow's refresh content.
+`brangsas` extras none · photos: `le-ejju` (off the Ejju card — it's a slideshow now), `nauman-broko-and-ejju-1`, `nauman-ejju-and-broko-1`, `nauman-in-ghundus` (off the Team mosaic), `ejju-in-prostration-1` (off the stillness block), `nauman-and-hassnain-2` (if strip uses 3), `canyon-fleet` spares, `nauman-in-shigar-with-kids` spares · clips: `blind-lake-reverse` (used only as palindrome half), `hassnain-broq-stairs-1`, `hassnain-broq-staris-2`, `lake-reverse`, `cat-near-khamosh-waterfall` + `ejju-and-nauman-petting-cat-near-khamosh-waterfall` (off the friends collage), `labayak-ya-hussain` (off the stillness block), `hassnain-and-nauman` if strip crowds, `broq-timelapse` + `broq-timelapse-reverse` (dropped — too shaky; compressed outputs deleted, originals stay). Benched ≠ deleted — they're tomorrow's refresh content.
 
 ---
 

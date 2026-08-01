@@ -17,6 +17,7 @@ Photos:
 - `le-ejju` (off the Ejju rider card — the card is a mini slideshow now)
 - `nauman-broko-and-ejju-1` · `nauman-in-ghundus` (off the Team mosaic)
 - `nauman-ejju-and-broko-1`
+- `ejju-in-prostration-1` (off the stillness block — one photo carries it now)
 - `surviving-sub-zero` (off Home and Our Dream)
 - `grizl-and-grail` spares from the fleet shoot
 
@@ -31,7 +32,10 @@ Clips:
   jumps (first/last frames differ, SSIM ≈ 0.45). Still used in the Home hero reel.
 - `blind-lake-reverse` (used only as the palindrome half on Where We Ride)
 - `hassnain-broq-stairs-1` · `hassnain-broq-staris-2` (typo original)
-- `lake-reverse` · `pov-ducks` spare uses · `shigar.mp4` ambient spare
+- `lake-reverse` · `shigar.mp4` ambient spare
+- `cat-near-khamosh-waterfall` · `ejju-and-nauman-petting-cat-near-khamosh-waterfall`
+  (off the friends collage — four clips carry it now)
+- `labayak-ya-hussain` (off the stillness block)
 
 ## Brand archive
 - `logo/V1`, `logo/V2` (CAFÉ artwork) and `logo/tours/_source-copies-cafe` are
