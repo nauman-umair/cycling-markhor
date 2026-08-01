@@ -140,31 +140,51 @@ Faith is part of the fabric of life in Baltistan, and part of ours. Some rides p
 
 ---
 
-## where-we-ride.html — Where We Ride
+## where-we-ride.html — Where We Ride (hub)
 
 ### Hero
 **Headline:** Where we ride.
-**Subline:** Skardu is the start line, not the whole story.
+*(the action reel carries the hero; the old subline's sentence now opens the intro)*
 
 ### Intro
-These are the roads and valleys we keep coming back to. Point at one, and we'll sort the bike, the route, and the company. And a word you'll hear from us: above every village in Baltistan sits its broq — the high summer pasture where the livestock grazes. Some of our favourite climbs end at one.
+Skardu is the start line, not the whole story. Five valleys, five moods — pick one and we'll sort the bike, the route, and the company.
 
-### Route cards
-- **Shigar Valley** — Green in summer, gold in autumn: walled lanes, apricot orchards, and the long glide down into the valley of forts.
-- **Blind Lake (Jarba Tso)** — Still enough to hold the mountains upside down. Gravel all the way in, turquoise all the way round.
-- **Upper Kachura** — Stairs, jetties, and a lake that swallows the afternoon. Load the bikes, earn the view.
-- **Sarfaranga Cold Desert** — A desert at altitude, ringed by snow peaks. Sand climbs that look impossible and feel even better.
-- **Khamosh Waterfall** — The "silent" waterfall that all but freezes solid in winter. Worth the detour in any season — the resident cat agrees.
-- **Masrur Rock** — Our hike-a-bike guilty pleasure. Carry up, grin down.
-- **The suspension bridges** — Wood, wire, and the river underneath. Crossing one with a bike on your shoulder is a rite of passage.
-- **Sildi road** — Big skies, empty tarmac and the valley opening ahead. The ride that starts as a warm-up and keeps going.
-- **Ghundus & Gol** — Quiet valley riding past villages that still wave at strangers.
-- **Gulabpur** — The long way round, through poplar tunnels and farmland.
-- **Winter riding** — The crowds leave, the Indus turns turquoise, and the cold rewrites the map. Bring layers; we'll bring the fat bike.
-- **Sharing the road** — Expect tractors, yak jams, sheep crossings and the occasional duck convoy. The rule is simple: everything else has right of way.
+### Valley cards
+- **Kharmang** — Hassnain's home valley. Hidden Baltistan: some of it behind a permit, all of it worth it.
+- **Shigar** — Orchards, forts, a cold desert, and a lake that holds the mountains upside down.
+- **Upper Kachura** — Stairs, jetties and a lake that swallows the afternoon.
+- **Ghundus** — Quiet roads, a prayer-still pond, villages that wave.
+- **Hussainabad's Broq** — Our high pasture: stone stairs, night skies, and Masrur Rock at the top.
 
 ### CTA
 **Button:** Point at a route — WhatsApp us
+
+---
+
+## rides/ — the five valley pages
+
+**Row kickers (shared template):** From the handlebars · From the sky · From the roadside
+
+### rides/kharmang-valley.html — Kharmang Valley
+**Headline:** Kharmang Valley.
+**Intro:** Kharmang is Hassnain's home valley — the Baltistan most visitors never see. Parts of it need a No Objection Certificate before you can enter; message us and we'll point you the right way. Beyond the paperwork: chocolate-coloured rocks, a waterfall that falls silent in winter, and roads with more cats than cars.
+
+### rides/shigar-valley.html — Shigar Valley
+**Headline:** Shigar Valley.
+**Intro:** Green in summer, gold in autumn: walled lanes, apricot orchards, and the long glide into the valley of forts. The same valley hides a cold desert at Sarfaranga, the poplar tunnels of Gulabpur, and the big-sky road toward Sildi. Traffic rules are simple: yaks, sheep and duck convoys have right of way.
+**Blind Lake (Jarba Tso) section:** Still enough to hold the mountains upside down. Gravel all the way in, turquoise all the way round.
+
+### rides/upper-kachura.html — Upper Kachura
+**Headline:** Upper Kachura.
+**Intro:** Load the bikes, earn the view. Stairs and jetties drop to a lake that swallows the afternoon — and the ride out at dusk is the quiet kind you don't tell everyone about.
+
+### rides/ghundus-valley.html — Ghundus Valley
+**Headline:** Ghundus Valley.
+**Intro:** Quiet valley riding past villages that still wave at strangers. There's a pond here still enough for prayer — some rides pause, and the mountains wait.
+
+### rides/hussainabad-broq.html — Hussainabad's Broq
+**Headline:** Hussainabad's Broq.
+**Intro:** Above every Balti village sits its broq — the high summer pasture where the livestock spends the season. Hussainabad's happens to come with stone stairs made for bike tricks, a night sky worth the climb, and Masrur Rock waiting at the top. Carry up, grin down.
 
 ---
 
@@ -205,7 +225,12 @@ Follow the build: **[@cyclingmarkhor.tours]** · **[WhatsApp us]**
 - **Our Fleet:** `Our Fleet — Cycling Markhor` / "Canyon Grizl, Grail and Grand Canyon out front — fat bikes, hybrids and road bikes behind. Bike hire in Skardu."
 - **Our Team:** `Our Team — Cycling Markhor` / "Two founders, two friends, four riders — the people behind Cycling Markhor in Skardu."
 - **Precious Humans:** `Precious Humans — Cycling Markhor` / "The kids, the cats and the yaks of Baltistan — the welcoming committee on every ride."
-- **Where We Ride:** `Where We Ride — Cycling Markhor` / "Shigar, Blind Lake, Sarfaranga, Khamosh — the routes we ride from Skardu, and the ones we'll ride with you."
+- **Where We Ride (hub):** `Where We Ride — Cycling Markhor` / "Five valleys, five moods — Kharmang, Shigar, Upper Kachura, Ghundus and Hussainabad's Broq: the rides we share from Skardu."
+- **Kharmang Valley:** `Kharmang Valley — Where We Ride — Cycling Markhor` / "Hassnain's home valley: chocolate rocks, the Khamosh waterfall, and roads with more cats than cars. Some of it behind a permit — ask us."
+- **Shigar Valley:** `Shigar Valley — Where We Ride — Cycling Markhor` / "Orchards, forts, the Sarfaranga cold desert, Gulabpur's poplar tunnels, the Sildi road and Blind Lake — one valley, many rides."
+- **Upper Kachura:** `Upper Kachura — Where We Ride — Cycling Markhor` / "Stairs and jetties down to a lake that swallows the afternoon. Load the bikes, earn the view."
+- **Ghundus Valley:** `Ghundus Valley — Where We Ride — Cycling Markhor` / "Quiet valley riding past villages that still wave at strangers, and a pond still enough for prayer."
+- **Hussainabad's Broq:** `Hussainabad's Broq — Where We Ride — Cycling Markhor` / "Our high pasture: stone stairs made for bike tricks, night skies worth the climb, and Masrur Rock at the top."
 - **Contact:** `Contact — Cycling Markhor` / "WhatsApp, call, email or Instagram — find Cycling Markhor in Skardu, Gilgit-Baltistan."
 
 ---

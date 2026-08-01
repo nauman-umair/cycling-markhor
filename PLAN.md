@@ -134,22 +134,17 @@ Build order (commit after each): **Home → Contact → Our Fleet → Our Team �
 - **"And friends" block:** exactly FOUR clips in a mixed collage — phone-frames `petting-cat-near-khamosh-waterfall` + `yaks-in-shigar` flanking two stacked wides `pov-ducks` + `pov-sheep`, even grid. Photo `yak-attack` below. (`cat-near-khamosh-waterfall` + `ejju-and-nauman-petting-cat-near-khamosh-waterfall` benched.)
 - **"Moments of stillness" block** (quiet, respectful, generous whitespace): heading + paragraph + ONE photo — `ejju-praying-1` at natural aspect. (`ejju-in-prostration-1` + `labayak-ya-hussain` benched; `ejju-in-prostration-2` lives in Ejju's Team slideshow.) Copy exactly as written — no additions.
 
-### 6. Where We Ride — `where-we-ride.html`
-- Hero: ambient palindrome `blind-lake` + `blind-lake-reverse` (the turquoise mirror), title overlay.
-- **Route cards** (each: name, blurb from copy.md, media; loop videos muted-in-viewport):
-  1. Shigar Valley — `pov-into-shigar.mp4` · photo `nauman-and-ejju-climbing-to-shigar`
-  2. Blind Lake (Jarba Tso) — `gravel-near-blind-lake.mp4` · `nauman-and-ejju-cycling-towards-blind-lake.mp4` · photo `nauman-and-ejju-gravel-ride-to-blind-lake`
-  3. Upper Kachura — `riding-towards-kachura.mp4`
-  4. Sarfaranga Cold Desert — `sarfaranga-climb.mp4` + `sarfaranga-desert.mp4` · photo `nauman-with-sarfaranga-in-background-2`
-  5. Khamosh Waterfall — `khamosh-waterfall.mp4`
-  6. Masrur Rock — `hassnain-climbing-masrur-rock.mp4` · vertical `ejju-and-hassnain-going-up-masrur.mp4` · photo `ejju-headed-to-masrur-rock`
-  7. The suspension bridges — `pov-crossing-bridge.mp4` · palindrome `bridge-reverse` · photo `nauman-and-ejju-dangerous-river-crossing`
-  8. Sildi road — `pov-towards-sildi.mp4` · photo `ejju-broko-and-nauman-riding-towards-sildi`
-  9. Ghundus & Gol — `exiting-gol.mp4` · photos `broko-in-ghundus`, `nauman-ejju-and-broko-in-ghundus-valley`
-  10. Gulabpur — `cycling-towards-gulabpur.mp4`
-  11. Winter riding — `pov-frozen-river.mp4`
-  12. Sharing the road — `hassnain-pov-crossing-tractor.mp4` + `pov-more-ducks.mp4` (links to Precious Humans)
-- Extra ambient available: `lake-reverse`, `shigar.mp4`, `view-from-broq` — use if a section needs breathing room.
+### 6. Where We Ride — hub `where-we-ride.html` + 5 valley pages in `rides/`
+- **Nav (site-wide):** "Where We Ride" is a dropdown — "All rides" (hub) + Kharmang Valley · Shigar Valley · Upper Kachura · Ghundus Valley · Hussainabad's Broq. Hover/focus-open on desktop, nested always-visible list in the mobile panel. All paths relative so `rides/` works under the GitHub Pages subpath.
+- **Media reuse (rides section only):** reuse across theme pages is allowed, home-reel clips are fair game; the one ban is another page's signature hero (sand drawing, canyon-fleet-4, etc.).
+- **Hub:** HERO REEL (7 clips, order): `hassnain-climbing-masrur-rock` → `hassnain-crossing-bridge` → `nauman-hassnain-riding-together-1` → `sarfaranga-climb` → `hassnain-and-nauman` → `hassnain-pov-crossing-tractor` → `nauman-hassnain-riding-together-2` (`hassnain-going-down-stairs` is vertical — it stars on the Kachura page instead). Intro per copy.md. FIVE VALLEY CARDS (explore-card style, order fixed): Kharmang (`khamosh-waterfall` poster) · Shigar (`shigar` poster) · Upper Kachura (`riding-towards-kachura` poster) · Ghundus (`nauman-ejju-and-broko-in-ghundus-valley` photo) · Hussainabad's Broq (`view-from-broq` poster). CTA band unchanged.
+- **Valley page template:** hero (ambient clip or hero-tier photo) → intro → rows with kickers "From the handlebars" (POV clips) · "From the sky" (wides + verticals in phone-frames) · "From the roadside" (contain-on-blur slideshow). No POVs → skip that row. All clips muted, autoplay-in-viewport, `preload="none"`.
+- **rides/kharmang-valley.html** (richest): hero `khamosh-waterfall` ambient · handlebars `pov-crossing-bridge`, `pov-ducks`, `pov-frozen-river` · sky wides `broko-and-chocolate-rocks`, `broko-is-our-hero`, `exiting-gol`, `labayak-ya-hussain`, `bridge-reverse`; frames `cat-near-khamosh-waterfall`, `ejju-and-nauman-petting-cat-near-khamosh-waterfall`, `ejju-nauman-broko` · roadside `nauman-ejju-and-broko-1`, `-2`, `prado-with-river-and-mountains-in-the-background-1`, `-2`.
+- **rides/shigar-valley.html:** hero `shigar` ambient · handlebars `pov-into-shigar`, `pov-more-ducks`, `pov-sheep`, `pov-towards-sildi` · sky `sarfaranga-climb`, `sarfaranga-desert`, `cycling-towards-gulabpur`; frame `yaks-in-shigar` · roadside `broko-nauman-and-ejju-climbing-to-shigar`, `nauman-and-ejju-dangerous-river-crossing`, `nauman-in-shigar`, `nauman-in-shigar-with-kids`, `yak-attack`, `nauman-with-sarfaranga-in-background`, `ejju-1`, `broko` · BLIND LAKE (JARBA TSO) section: existing blurb, ambient `blind-lake`+`blind-lake-reverse`, clips `gravel-near-blind-lake` + `nauman-and-ejju-cycling-towards-blind-lake`, photos `nauman-and-ejju-gravel-ride-to-blind-lake` + `surviving-sub-zero`.
+- **rides/upper-kachura.html** (compact): hero `riding-towards-kachura` ambient · sky `nauman-hassnain-ejju-broko-cycling-towards-kachura`; frame star `hassnain-going-down-stairs-to-upper-kachura-lake` · roadside `hassnain-loading-bicycle-in-upper-kachura` single photo, natural aspect.
+- **rides/ghundus-valley.html:** hero `nauman-ejju-and-broko-in-ghundus-valley` photo with hero tier (1280/1600/2560 srcset) · handlebars `hassnain-pov-crossing-tractor` · sky `hassnain-crossing-bridge`, `lake-reverse` · roadside `broko-ejju-prado-and-nauman`, `broko-in-ghundus`, `le-ejju-and-broko`, `ejju-2`, `ejju-and-m-hassan`, `ejju-in-prostration-1`, `grizl-and-grail`, `nauman-and-ejju`, `nauman-in-ghundus`, `nauman-and-kids-1`.
+- **rides/hussainabad-broq.html:** hero `view-from-broq` ambient · sky `hassnain-climbing-masrur-rock`, `hassnain-broq-stairs-1`, `hassnain-broq-stairs-2` (skip `view-from-broq` in the row if it reads doubled with the hero); frame `ejju-and-hassnain-going-up-masrur` · roadside `ejju-headed-to-masrur-rock`, `hassnain-arsalan-and-broko`, `night-view-from-broq`, `cycling-markhor`, `cycling-markhor-cafe-side-logo`, `cycling-markhor-cafe-back-logo`.
+- **SEO:** per-page title + meta description (drafts in copy.md), OG image = each page's hero poster/photo.
 
 ### 7. Our Dream — `our-dream.html`
 - Hero: `brangsas-from-dream-to-sand-1` full-bleed — the sand drawings sit low in the photo, so the cover crop uses `object-position: center 85%`, screenshot-verified at desktop and phone widths (drawings unmistakably in frame in both).

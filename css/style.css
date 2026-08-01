@@ -88,6 +88,42 @@ h1, h2, h3 {
 .site-nav a[aria-current="page"] { color: #fff; }
 .site-nav a[aria-current="page"] { border-bottom: 2px solid var(--turquoise); }
 
+/* Rides dropdown — hover/focus opens on desktop; inside the mobile panel
+   it renders as a nested, always-visible list */
+.nav-item { position: relative; }
+.nav-item > a::after {
+  content: "";
+  display: inline-block;
+  margin-left: 0.35rem;
+  vertical-align: 0.15em;
+  border: 4px solid transparent;
+  border-top-color: currentColor;
+}
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  min-width: 12.5rem;
+  padding: 0.5rem 0;
+  background: rgba(43, 46, 51, 0.97);
+  border-radius: 0 0 4px 4px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+.nav-item:hover .nav-dropdown,
+.nav-item:focus-within .nav-dropdown { opacity: 1; visibility: visible; }
+.nav-dropdown a {
+  padding: 0.5rem 1.15rem;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+.nav-dropdown a:hover { background: rgba(255, 255, 255, 0.06); }
+
 /* Solid header variant (contact page etc.) */
 .site-header--solid { position: static; background: var(--charcoal); }
 
@@ -140,6 +176,40 @@ h1, h2, h3 {
     color: #fff;
   }
   .nav-open { overflow: hidden; }
+
+  /* Nested rides list inside the panel — one scrollable column (the
+     taller menu would otherwise wrap into a second column) */
+  .site-nav {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 4.5rem 0 2.5rem;
+    overflow-y: auto;
+  }
+  .site-nav .nav-item {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-item > a::after { display: none; }
+  .nav-dropdown {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    background: none;
+    min-width: 0;
+    padding: 0.65rem 0 0;
+    gap: 0.55rem;
+    align-items: center;
+  }
+  .site-nav .nav-dropdown a {
+    font-family: var(--sans);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.75);
+    padding: 0;
+  }
+  .site-nav .nav-dropdown a:hover { background: none; color: #fff; }
 }
 
 /* ---------- Hero reel ---------- */
