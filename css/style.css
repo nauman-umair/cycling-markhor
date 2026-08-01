@@ -1181,6 +1181,12 @@ figcaption.caption {
   background: var(--charcoal);
 }
 .clip-grid .ambient { border-radius: 4px; }
+.clip-grid .phone-card {
+  width: 100%;
+  max-width: 15rem;
+  justify-self: center;
+  align-self: center;
+}
 
 /* ---------- Vertical reel strip (phone-frame cards) ---------- */
 
