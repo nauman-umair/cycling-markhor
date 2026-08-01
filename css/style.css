@@ -556,15 +556,15 @@ h1, h2, h3 {
 .pos-low { object-position: center 75% !important; }
 .pos-high { object-position: center 22% !important; }
 
-/* Precious Humans hero: full-bleed collage of four portrait tiles.
-   Tiles cover-crop (mostly side trim — sources are 4:5 in taller tiles);
-   any per-tile face nudge uses the .pos-* anchors, screenshot-verified.
-   Phone: 2×2 grid, same order. */
+/* Precious Humans hero: full-bleed 3-tile collage — two 4:5 verticals
+   flanking the 16:9 dogs shot, whose centre column runs wider (~43%) so it
+   sits close to its natural shape. Per-tile crops screenshot-verified.
+   Phone: the escort tile full-width on top, the other two side by side. */
 .hero-collage {
   position: absolute;
   inset: 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 2fr 3fr 2fr;
   gap: 2px;
 }
 .hero-collage img {
@@ -574,12 +574,14 @@ h1, h2, h3 {
 }
 @media (max-width: 44rem) {
   .hero-collage {
-    grid-template-columns: 1fr 1fr;
+    /* dogs tile gets the wider share below so its 16:9 keeps both dogs */
+    grid-template-columns: 3fr 2fr;
     /* minmax(0,…) so the rows split the hero exactly — a plain 1fr track
        refuses to shrink below the image's intrinsic height and the second
        row would spill past the hero's clipped edge */
-    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1.15fr) minmax(0, 1fr);
   }
+  .hero-collage img:first-child { grid-column: 1 / -1; }
 }
 
 /* Bottom-anchored cover crop — for photos whose subject sits low in frame */

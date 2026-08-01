@@ -18,6 +18,7 @@ Photos:
 - `nauman-broko-and-ejju-1` · `nauman-in-ghundus` (off the Team mosaic)
 - `nauman-ejju-and-broko-1`
 - `ejju-in-prostration-1` (off the stillness block — one photo carries it now)
+- `nauman-and-kids-2` (off the Precious Humans hero when it went 3-tile)
 - `surviving-sub-zero` (off Home and Our Dream)
 - `grizl-and-grail` spares from the fleet shoot
 
