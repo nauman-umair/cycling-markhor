@@ -115,8 +115,23 @@ h1, h2, h3 {
   visibility: hidden;
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
-.nav-item:hover .nav-dropdown,
-.nav-item:focus-within .nav-dropdown { opacity: 1; visibility: visible; }
+/* Hover-open is pointer-device only (a touch tap must not need to fight the
+   link's navigation); transition-delay gives ~120ms open / ~250ms close
+   intent so a mouse crossing the nav doesn't flash the menu */
+@media (hover: hover) and (pointer: fine) {
+  .nav-dropdown { transition-delay: 0.25s, 0.25s; }
+  .nav-item:hover .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.12s, 0.12s;
+  }
+}
+.nav-item:focus-within .nav-dropdown,
+.nav-item.is-open .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s, 0s;
+}
 .nav-dropdown a {
   padding: 0.5rem 1.15rem;
   font-size: 0.875rem;

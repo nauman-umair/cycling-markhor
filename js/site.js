@@ -20,6 +20,77 @@
     if (p && p.catch) p.catch(function () {});
   }
 
+  /* ---- Rides dropdown: CSS :hover (with intent delays) owns pointer
+     devices — this only adds what CSS can't: aria-expanded state, Escape to
+     close, and touch behaviour (first tap opens the menu instead of
+     navigating; tapping outside closes it). */
+  document.querySelectorAll('.nav-item').forEach(function (item) {
+    var trigger = item.querySelector('a');
+    var menu = item.querySelector('.nav-dropdown');
+    if (!trigger || !menu) return;
+
+    var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+    var mobilePanel = window.matchMedia('(max-width: 52rem)');
+    var ariaT = null;
+
+    trigger.setAttribute('aria-haspopup', 'true');
+    trigger.setAttribute('aria-expanded', 'false');
+
+    function setOpen(open) {
+      item.classList.toggle('is-open', open);
+      trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    // Mirror the CSS hover delays for aria-expanded (state only — the CSS
+    // :hover rule does the showing).
+    item.addEventListener('mouseenter', function () {
+      if (!finePointer.matches) return;
+      window.clearTimeout(ariaT);
+      ariaT = window.setTimeout(function () {
+        trigger.setAttribute('aria-expanded', 'true');
+      }, 120);
+    });
+    item.addEventListener('mouseleave', function () {
+      if (!finePointer.matches) return;
+      window.clearTimeout(ariaT);
+      ariaT = window.setTimeout(function () {
+        trigger.setAttribute('aria-expanded', 'false');
+      }, 250);
+    });
+    item.addEventListener('focusin', function () {
+      trigger.setAttribute('aria-expanded', 'true');
+    });
+    item.addEventListener('focusout', function () {
+      if (!item.classList.contains('is-open')) {
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Touch in the desktop layout: first tap opens instead of navigating;
+    // the link stays a normal link everywhere else. In the mobile panel the
+    // nested list is always visible, so taps just navigate.
+    trigger.addEventListener('click', function (e) {
+      if (finePointer.matches || mobilePanel.matches) return;
+      if (!item.classList.contains('is-open')) {
+        e.preventDefault();
+        setOpen(true);
+      }
+    });
+    document.addEventListener('click', function (e) {
+      if (item.classList.contains('is-open') && !item.contains(e.target)) {
+        setOpen(false);
+      }
+    });
+    item.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        setOpen(false);
+        if (document.activeElement && item.contains(document.activeElement)) {
+          document.activeElement.blur();
+        }
+      }
+    });
+  });
+
   /* ---- Viewport autoplay: any <video data-autoplay> plays muted while
      visible, pauses when scrolled away. Used by vertical phone-strips and
      route-card loop videos. Posters only under reduced motion / data saver. */
