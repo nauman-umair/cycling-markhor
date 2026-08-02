@@ -32,7 +32,8 @@ Clips:
 - `view-from-broq` as an ambient loop on Our Dream — cut: the loop restart
   jumps (first/last frames differ, SSIM ≈ 0.45). Still used in the Home hero reel.
 - `blind-lake-reverse` (used only as the palindrome half on Where We Ride)
-- `hassnain-broq-stairs-1` · `hassnain-broq-staris-2` (typo original)
+- `hassnain-broq-stairs-1` (cut from the Broq page — near-duplicate of `-2`,
+  which stays) · `hassnain-broq-staris-2` (typo original)
 - `lake-reverse` · `shigar.mp4` ambient spare
 - `cat-near-khamosh-waterfall` · `ejju-and-nauman-petting-cat-near-khamosh-waterfall`
   (off the friends collage — four clips carry it now)

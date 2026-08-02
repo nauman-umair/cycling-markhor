@@ -163,7 +163,12 @@ Skardu is the start line, not the whole story. Five valleys, five moods — pick
 
 ## rides/ — the five valley pages
 
-**Row kickers (shared template):** From the handlebars · From the sky · From the roadside
+**Row kickers (page-specific — derived from what the footage shows):**
+- Kharmang: From the handlebars · From the sky · On the valley roads · From the roadside
+- Shigar: From the handlebars · Across the valley · From the roadside (+ Blind Lake section)
+- Upper Kachura: The ride in · From the roadside
+- Ghundus: From the handlebars · From the sky · From the roadside
+- Hussainabad's Broq: The way up · From the roadside
 
 ### rides/kharmang-valley.html — Kharmang Valley
 **Headline:** Kharmang Valley.

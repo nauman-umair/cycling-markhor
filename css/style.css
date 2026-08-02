@@ -1236,7 +1236,13 @@ figcaption.caption {
   .clip-split .clip-split-stack { flex: 1 1 0; }
 }
 @media (max-width: 44rem) {
-  .clip-split > .phone-card { align-self: center; width: clamp(180px, 58vw, 250px); }
+  /* flex-basis auto: in the column layout the inherited basis would become
+     the card's HEIGHT and squash the 9:16 frame square */
+  .clip-split > .phone-card {
+    flex: 0 0 auto;
+    align-self: center;
+    width: clamp(180px, 58vw, 250px);
+  }
 }
 
 /* ---------- Vertical reel strip (phone-frame cards) ---------- */
