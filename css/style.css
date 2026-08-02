@@ -1162,16 +1162,23 @@ figcaption.caption {
   background: linear-gradient(to bottom, rgba(20,22,26,0), rgba(20,22,26,0.6));
 }
 
-/* ---------- Valley pages (rides/): rows of wide clips ---------- */
+/* ---------- Valley pages (rides/): rows of wide clips ----------
+   Flex-wrap, not Grid: partial final rows centre automatically on every
+   page regardless of clip count (Grid left-aligns orphans with a hole). */
 
 .clip-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 0.9rem;
   margin-top: 1.75rem;
 }
+.clip-grid > * { flex: 0 1 100%; min-width: 0; }
+
 @media (min-width: 44rem) {
-  .clip-grid { grid-template-columns: repeat(var(--cols, 3), 1fr); }
+  .clip-grid > * {
+    flex: 0 1 calc((100% - (var(--cols, 3) - 1) * 0.9rem) / var(--cols, 3));
+  }
 }
 .clip-grid video {
   width: 100%;
@@ -1181,11 +1188,55 @@ figcaption.caption {
   background: var(--charcoal);
 }
 .clip-grid .ambient { border-radius: 4px; }
-.clip-grid .phone-card {
+.clip-grid .phone-card { flex: 0 1 clamp(180px, 22vw, 250px); align-self: center; }
+
+/* Portrait clips ride in their own centred row beneath the landscape grid —
+   never mixed into it */
+.clip-grid--portrait { justify-content: center; }
+.clip-grid--portrait > * { flex: 0 1 clamp(180px, 22vw, 250px); }
+
+/* Sparse sections: one clip large and centred, or a pair at half width —
+   a multi-column grid holding one or two items reads as broken */
+@media (min-width: 44rem) {
+  .clip-grid--solo > * { flex: 0 1 70%; }
+  .clip-grid--pair > * { flex: 0 1 calc((100% - 0.9rem) / 2); }
+}
+
+/* One portrait clip + several landscape clips: two-column split — portrait
+   at natural 9:16 on the left (~1/3), landscape clips stacked right (~2/3).
+   Collapses to one column (portrait first) below 44rem. */
+.clip-split {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 1.75rem;
+}
+.clip-split .clip-split-portrait video,
+.clip-split > .phone-card video { width: 100%; height: 100%; object-fit: cover; }
+.clip-split .clip-split-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  min-width: 0;
+}
+.clip-split .clip-split-stack video {
   width: 100%;
-  max-width: 15rem;
-  justify-self: center;
-  align-self: center;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--charcoal);
+}
+@media (min-width: 44rem) {
+  .clip-split {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .clip-split > .phone-card,
+  .clip-split .clip-split-portrait { flex: 0 1 33.5%; }
+  .clip-split .clip-split-stack { flex: 1 1 0; }
+}
+@media (max-width: 44rem) {
+  .clip-split > .phone-card { align-self: center; width: clamp(180px, 58vw, 250px); }
 }
 
 /* ---------- Vertical reel strip (phone-frame cards) ---------- */
